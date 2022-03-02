@@ -11,18 +11,37 @@
 }
 .list ul li {
     list-style: none;
-    padding: 1.5rem;
+    padding: 1.2rem;
 }
 .list ul li:last-child {
     padding-right: 5rem;
 }
 .list ul li a{
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 400;
     color: white;
+}
+.list ul li a:hover {
+    color: rgb(228, 226, 226);
 }
 .listItem{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.searchInput{
+    width: 35rem;
+    height: 3rem;
+    border-radius: 7px;
+    border: none;
+    padding-left: 10px;
+    transition: 0.3s ease;
+}
+.searchInput:focus{
+    border-radius: 7px;
+    outline: none;
+    caret-color: #0e8d63;
+}
+.icons {
+    font-size: 1.8rem;
 }

@@ -1,6 +1,5 @@
 import Head from 'next/head'
 import Navbar from '../components/Navbar'
-import Search from '../components/Search'
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
@@ -12,7 +11,6 @@ export default function Home() {
         <link rel="icon" href="/logo.jpg" />
       </Head>
       <Navbar></Navbar>
-      <Search></Search>
     </div>
   )
 }

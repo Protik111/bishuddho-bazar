@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Categories from '../components/Categories';
+import Choose from '../components/Choose';
 import Header from '../components/Header'
 import Navbar from '../components/Navbar'
 import Products from '../components/Products';
@@ -18,7 +19,8 @@ export default function Home() {
       <Navbar></Navbar>
       <Header expiryTimestamp={time}></Header>
       <Categories></Categories>
-      <Products>s</Products>
+      <Products></Products>
+      <Choose></Choose>
     </div>
   )
 }

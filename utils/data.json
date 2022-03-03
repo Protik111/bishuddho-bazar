@@ -1,0 +1,179 @@
+[
+    {
+        "id" : 1,
+        "name" : "Eggs Benedict",
+        "description" : "How we dream about our future",
+        "price" : 8.99,
+        "category" : "apple",
+        "size": "1lb",
+        "image" : "https://i.ibb.co/N2j8tHv/breakfast1.png",
+        "fullDescription" : "Chicken sausage Beef pepperoni come together with seasoned mushrooms and green chilli to deliver a spicy and meaty mouthfeel Chicken sausage Beef pepperoni come together with seasoned mushrooms and green chilli to deliver a spicy and meaty mouthfeel."
+
+
+    },
+    {
+        "id" : 2,
+        "name" : "Bagel And Cream Cheese",
+        "description" : "How we dream about our future",
+        "price" : 6.99,
+        "category" : "baby",
+        "size": "1lb",
+        "image" : "https://i.ibb.co/LSj19XP/breakfast2.png",
+        "fullDescription" : "Chicken sausage Beef pepperoni come together with seasoned mushrooms and green chilli to deliver a spicy and meaty mouthfeel Chicken sausage Beef pepperoni come together with seasoned mushrooms and green chilli to deliver a spicy and meaty mouthfeel."
+
+
+    },
+    {
+        "id" : 3,
+        "name" : "Breakfast Sandwich",
+        "description" : "How we dream about our future",
+        "price" : 9.99,
+        "size": "1ct",
+        "category" : "fish",
+        "image" : "https://i.ibb.co/smK7S1m/breakfast3.png",
+        "fullDescription" : "Chicken sausage Beef pepperoni come together with seasoned mushrooms and green chilli to deliver a spicy and meaty mouthfeel Chicken sausage Beef pepperoni come together with seasoned mushrooms and green chilli to deliver a spicy and meaty mouthfeel."
+
+
+    },
+    {
+        "id" : 4,
+        "name" : "Baked Chicken",
+        "description" : "How we dream about our future",
+        "price" : 10.99,
+        "category" : "food",
+        "size": "1lb",
+        "image" : "https://i.ibb.co/SVLPdmK/breakfast4.png",
+        "fullDescription" : "Chicken sausage Beef pepperoni come together with seasoned mushrooms and green chilli to deliver a spicy and meaty mouthfeel Chicken sausage Beef pepperoni come together with seasoned mushrooms and green chilli to deliver a spicy and meaty mouthfeel."
+
+
+    },
+    {
+        "id" : 5,
+        "name" : "Toast Croissant Fried Egg",
+        "description" : "How we dream about our future",
+        "price" : 19.99,
+        "category" : "grocery",
+        "size": "oz",
+        "image" : "https://i.ibb.co/f2M7BsD/breakfast5.png",
+        "fullDescription" : "Chicken sausage Beef pepperoni come together with seasoned mushrooms and green chilli to deliver a spicy and meaty mouthfeel Chicken sausage Beef pepperoni come together with seasoned mushrooms and green chilli to deliver a spicy and meaty mouthfeel."
+
+    },
+    {
+        "id" : 6,
+        "name" : "Full Breakfast Fried Egg Toast Brunch",
+        "description" : "How we dream about our future",
+        "price" : 3.99,
+        "category" : "honey",
+        "size": "each",
+        "image" : "https://i.ibb.co/59nmKkW/breakfast6.png",
+        "fullDescription" : "Chicken sausage Beef pepperoni come together with seasoned mushrooms and green chilli to deliver a spicy and meaty mouthfeel Chicken sausage Beef pepperoni come together with seasoned mushrooms and green chilli to deliver a spicy and meaty mouthfeel."
+
+
+    },
+    {
+        "id" : 7,
+        "name" : "Healthy Meal Plan",
+        "description" : "How we dream about our future",
+        "price" : 23.99,
+        "category" : "lunch",
+        "size": "each",
+        "image" : "https://i.ibb.co/ZXYyN2P/dinner1.png",
+        "fullDescription" : "Chicken sausage Beef pepperoni come together with seasoned mushrooms and green chilli to deliver a spicy and meaty mouthfeel Chicken sausage Beef pepperoni come together with seasoned mushrooms and green chilli to deliver a spicy and meaty mouthfeel."
+
+
+    },
+    {
+        "id" : 8,
+        "name" : "Fried Chicken Bento",
+        "description" : "How we dream about our future",
+        "price" : 9.99,
+        "category" : "meat",
+        "size": "1oz",
+        "image" : "https://i.ibb.co/0n6nW3j/dinner2.png",
+        "fullDescription" : "Chicken sausage Beef pepperoni come together with seasoned mushrooms and green chilli to deliver a spicy and meaty mouthfeel Chicken sausage Beef pepperoni come together with seasoned mushrooms and green chilli to deliver a spicy and meaty mouthfeel."
+
+
+    },
+    {
+        "id" : 9,
+        "name" : "Tarragon-Rubbed-Salmon",
+        "description" : "How we dream about our future",
+        "price" : 6.99,
+        "category" : "honey",
+        "size": "1oz",
+        "image" : "https://i.ibb.co/Wyy3XLg/dinner3.png",
+        "fullDescription" : "Chicken sausage Beef pepperoni come together with seasoned mushrooms and green chilli to deliver a spicy and meaty mouthfeel Chicken sausage Beef pepperoni come together with seasoned mushrooms and green chilli to deliver a spicy and meaty mouthfeel."
+
+
+    },
+    {
+        "id" : 10,
+        "name" : "Indian Lunch",
+        "description" : "How we dream about our future",
+        "price" : 8.99,
+        "category" : "apple",
+        "size": "1ct",
+        "image" : "https://i.ibb.co/fksSHqz/dinner4.png",
+        "fullDescription" : "Chicken sausage Beef pepperoni come together with seasoned mushrooms and green chilli to deliver a spicy and meaty mouthfeel Chicken sausage Beef pepperoni come together with seasoned mushrooms and green chilli to deliver a spicy and meaty mouthfeel."
+
+
+    },
+    {
+        "id" : 11,
+        "name" : "Beef Steak",
+        "description" : "How we dream about our future",
+        "price" : 15.99,
+        "category" : "food",
+        "size": "1lb",
+        "image" : "https://i.ibb.co/TbmCQt0/dinner5.png",
+        "fullDescription" : "Chicken sausage Beef pepperoni come together with seasoned mushrooms and green chilli to deliver a spicy and meaty mouthfeel Chicken sausage Beef pepperoni come together with seasoned mushrooms and green chilli to deliver a spicy and meaty mouthfeel."
+
+
+    },
+    {
+        "id" : 12,
+        "name" : "Honey-Soy-Glazzed Salmon With Peppers",
+        "description" : "How we dream about our future",
+        "price" : 7.99,
+        "category" : "baby",
+        "size": "1ct",
+        "image" : "https://i.ibb.co/wSPKkZL/dinner6.png",
+        "fullDescription" : "Chicken sausage Beef pepperoni come together with seasoned mushrooms and green chilli to deliver a spicy and meaty mouthfeel Chicken sausage Beef pepperoni come together with seasoned mushrooms and green chilli to deliver a spicy and meaty mouthfeel."
+
+
+    },
+    {
+        "id" : 13,
+        "name" : "Salmon with Grapefruit and Lentil Salad",
+        "description" : "How we dream about our future",
+        "price" : 9.99,
+        "category" : "food",
+        "size": "1lb",
+        "image" : "https://i.ibb.co/wgBYq4v/lunch1.png",
+        "fullDescription" : "Chicken sausage Beef pepperoni come together with seasoned mushrooms and green chilli to deliver a spicy and meaty mouthfeel Chicken sausage Beef pepperoni come together with seasoned mushrooms and green chilli to deliver a spicy and meaty mouthfeel."
+
+
+    },
+    {
+        "id" : 14,
+        "name" : "Lamoni Salmon Piccata",
+        "description" : "How we dream about our future",
+        "price" : 10.99,
+        "category" : "meat",
+        "size": "1ct",
+        "image" : "https://i.ibb.co/pbHfvPJ/lunch2.png",
+        "fullDescription" : "Chicken sausage Beef pepperoni come together with seasoned mushrooms and green chilli to deliver a spicy and meaty mouthfeel Chicken sausage Beef pepperoni come together with seasoned mushrooms and green chilli to deliver a spicy and meaty mouthfeel."
+
+
+    },
+    {
+        "id" : 15,
+        "name" : "Pork Tendelorin With Quinoa Pilaf",
+        "description" : "How we dream about our future",
+        "price" : 12.99,
+        "category" : "fish",
+        "size": "1ct",
+        "image" : "https://i.ibb.co/KmWKzwJ/lunch3.png",
+        "fullDescription" : "Chicken sausage Beef pepperoni come together with seasoned mushrooms and green chilli to deliver a spicy and meaty mouthfeel Chicken sausage Beef pepperoni come together with seasoned mushrooms and green chilli to deliver a spicy and meaty mouthfeel."
+    }
+]

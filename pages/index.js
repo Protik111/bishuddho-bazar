@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Categories from '../components/Categories';
 import Header from '../components/Header'
 import Navbar from '../components/Navbar'
 import styles from '../styles/Home.module.css'
@@ -15,6 +16,7 @@ export default function Home() {
       </Head>
       <Navbar></Navbar>
       <Header expiryTimestamp={time}></Header>
+      <Categories></Categories>
     </div>
   )
 }

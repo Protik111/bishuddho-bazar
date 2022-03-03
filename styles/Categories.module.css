@@ -1,0 +1,8 @@
+.categories_container{
+    transition: all 0.3s ease;
+}
+.categories_container:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    color: rgb(99, 94, 94);
+}

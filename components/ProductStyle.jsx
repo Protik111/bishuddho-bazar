@@ -9,7 +9,7 @@ const ProductStyle = ({ item }) => {
         <Link href={`/product/${id}`} passHref>
         <div className={`${styles.container} col-md-2 m-3 px-3`}>
             <div className="pt-3 d-flex justify-content-center">
-                <Image className={styles.productImg} src='/images/products/cranberry.png' width={200} height={130}></Image>
+                <Image className={styles.productImg} src={image} width={200} height={130}></Image>
             </div>
             <div className={`${styles.cartInfo} mt-4`}>
                 <div className={styles.info}>

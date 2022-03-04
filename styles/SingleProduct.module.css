@@ -20,3 +20,12 @@
     font-weight: 500;
     font-size: medium;
 }
+.categoryPrice{
+    display: flex;
+    align-items: center;
+}
+.size {
+    border: 1px solid gray;
+    border-radius: 50%;
+    padding: 5px;
+}

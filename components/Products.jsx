@@ -1,4 +1,4 @@
-import data from '../utils/data.json';
+import data from '../utils/data.js';
 import ProductStyle from './ProductStyle';
 
 const Products = () => {

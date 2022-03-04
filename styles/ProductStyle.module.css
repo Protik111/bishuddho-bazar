@@ -4,6 +4,10 @@
 }
 .productImg{
     object-fit: cover;
+    transition: all 0.3s ease;
+}
+.productImg:hover{
+    transform: scale(1.2);
 }
 .info p{
     line-height: 1rem;

@@ -4,7 +4,6 @@ import Choose from '../components/Choose';
 import Header from '../components/Header'
 import Navbar from '../components/Navbar'
 import Products from '../components/Products';
-import styles from '../styles/Home.module.css'
 
 export default function Home() {
   const time = new Date();

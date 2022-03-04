@@ -1,10 +1,12 @@
 import Image from "next/image";
 import styles from '../styles/ProductStyle.module.css';
 import { BsFillCartPlusFill } from 'react-icons/bs';
+import Link from "next/link";
 
 const ProductStyle = ({ item }) => {
-    const { name, description, size, price, category, image } = item;
+    const {id, name, description, size, price, category, image } = item;
     return (
+        <Link href={`/product/${id}`} passHref>
         <div className={`${styles.container} col-md-2 m-3 px-3`}>
             <div className="pt-3 d-flex justify-content-center">
                 <Image className={styles.productImg} src='/images/products/cranberry.png' width={200} height={130}></Image>
@@ -20,6 +22,7 @@ const ProductStyle = ({ item }) => {
                 </div>
             </div>
         </div>
+        </Link>
     );
 };
 

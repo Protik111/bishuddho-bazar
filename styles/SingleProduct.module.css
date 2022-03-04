@@ -1,0 +1,22 @@
+.price{
+    font-weight: 700;
+    font-size: larger;
+}
+.numbers{
+    display: flex;
+    align-items: center;
+    border: 1px solid gray;
+    border-radius: 7px;
+}
+.numbers p {
+    font-size: larger;
+    padding: .7rem 1.2rem 0 1.2rem;
+}
+.cartAdd{
+    display: flex;
+    align-items: center;
+}
+.category{
+    font-weight: 500;
+    font-size: medium;
+}

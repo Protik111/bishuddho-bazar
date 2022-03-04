@@ -28,11 +28,11 @@ const SingleProduct = () => {
             <Navbar search={false}></Navbar>
             <div className="row mt-4">
                 <div className="col-md-5 offset-md-1 mt-5 offset-1">
-                    <Image src={item.image} alt="Picture of the product" width={300} height={300}></Image>
+                    <Image className={styles.singleImg} src={item.image} alt="Picture of the product" width={330} height={300}></Image>
                 </div>
                 <div className="col-md-5 mt-5 offset-1 offset-md-0">
                     <h4>{item.name}</h4>
-                    <p className="me-1">{item.fullDescription}</p>
+                    <p className="me-1">{item.description}</p>
                     <p className={styles.price}>${item.price}</p>
                     <div className={styles.cartAdd}>
                         <div className={`${styles.numbers}`}>

@@ -1,180 +1,206 @@
 const data = [
     {
         id : 1,
-        name : "Eggs Benedict",
-        description : "How we dream about our future",
+        name : "Apple",
         price : 8.99,
-        category : "apple",
+        category : "Fruits",
         size: "1lb",
         image : "/images/products/apple.png",
-        fullDescription : "Chicken sausage Beef pepperoni come together with seasoned mushrooms and green chilli to deliver a spicy and meaty mouthfeel Chicken sausage Beef pepperoni come together with seasoned mushrooms and green chilli to deliver a spicy and meaty mouthfeel."
+        description : "In a botanical sense, a fruit is the fleshy or dry ripened ovary of a flowering plant, enclosing the seed or seeds. Apricots, bananas, and grapes, as well as bean pods, corn grains, tomatoes, cucumbers, and (in their shells) acorns and almonds, are all technically fruits.",
+        rating: 4.5,
+        counts: 10,
+        reviews: 5
 
 
     },
     {
         id : 2,
-        name : "Bagel And Cream Cheese",
-        description : "How we dream about our future",
+        name : "Cauliflower",
         price : 6.99,
-        category : "baby",
+        category : "Pickle Food",
         size: "1lb",
         image : "/images/products/cauliflower.png",
-        fullDescription : "Chicken sausage Beef pepperoni come together with seasoned mushrooms and green chilli to deliver a spicy and meaty mouthfeel Chicken sausage Beef pepperoni come together with seasoned mushrooms and green chilli to deliver a spicy and meaty mouthfeel."
-
-
+        description : "Most fresh vegetables are low in calories and have a water content in excess of 70 percent, with only about 3.5 percent protein and less than 1 percent fat. ... The root vegetables include beets, carrots, radishes, sweet potatoes, and turnips. Stem vegetables include asparagus and kohlrabi.",
+        rating: 4.5,
+        counts: 10,
+        reviews: 5
     },
     {
         id : 3,
-        name : "Breakfast Sandwich",
-        description : "How we dream about our future",
+        name : "Fresh Chilli",
         price : 9.99,
         size: "1ct",
-        category : "fish",
+        category : "Pickle Food",
         image : "/images/products/chilli.png",
-        fullDescription : "Chicken sausage Beef pepperoni come together with seasoned mushrooms and green chilli to deliver a spicy and meaty mouthfeel Chicken sausage Beef pepperoni come together with seasoned mushrooms and green chilli to deliver a spicy and meaty mouthfeel."
-
-
+        description : "Our fish collection comprises a few categories such as dry fish, fresh live fish, frozen fish. It is no surprise that we supply a vast variety of fish in",
+        rating: 4.5,
+        counts: 10,
+        reviews: 5
     },
     {
         id : 4,
-        name : "Baked Chicken",
-        description : "How we dream about our future",
+        name : "Clementine",
         price : 10.99,
-        category : "food",
+        category : "Fruits",
         size: "1lb",
         image : "/images/products/clementine.png",
-        fullDescription : "Chicken sausage Beef pepperoni come together with seasoned mushrooms and green chilli to deliver a spicy and meaty mouthfeel Chicken sausage Beef pepperoni come together with seasoned mushrooms and green chilli to deliver a spicy and meaty mouthfeel."
+        description : "In a botanical sense, a fruit is the fleshy or dry ripened ovary of a flowering plant, enclosing the seed or seeds. Apricots, bananas, and grapes, as well as bean pods, corn grains, tomatoes, cucumbers, and (in their shells) acorns and almonds, are all technically fruits.",
+        rating: 4.5,
+        counts: 10,
+        reviews: 5
 
 
     },
     {
         id : 5,
-        name : "Toast Croissant Fried Egg",
-        description : "How we dream about our future",
+        name : "Pomegranate",
         price : 19.99,
-        category : "grocery",
+        category : "Fruits",
         size: "oz",
         image : "/images/products/cranberry.png",
-        fullDescription : "Chicken sausage Beef pepperoni come together with seasoned mushrooms and green chilli to deliver a spicy and meaty mouthfeel Chicken sausage Beef pepperoni come together with seasoned mushrooms and green chilli to deliver a spicy and meaty mouthfeel."
+        description : "In a botanical sense, a fruit is the fleshy or dry ripened ovary of a flowering plant, enclosing the seed or seeds. Apricots, bananas, and grapes, as well as bean pods, corn grains, tomatoes, cucumbers, and (in their shells) acorns and almonds, are all technically fruits.",
+        rating: 4.5,
+        counts: 10,
+        reviews: 5
 
     },
     {
         id : 6,
-        name : "Full Breakfast Fried Egg Toast Brunch",
-        description : "How we dream about our future",
+        name : "Green Beans",
         price : 3.99,
-        category : "honey",
+        category : "Pickle Food",
         size : "each",
         image : "/images/products/green_beans.png",
-        fullDescription : "Chicken sausage Beef pepperoni come together with seasoned mushrooms and green chilli to deliver a spicy and meaty mouthfeel Chicken sausage Beef pepperoni come together with seasoned mushrooms and green chilli to deliver a spicy and meaty mouthfeel."
+        description : "In a botanical sense, a fruit is the fleshy or dry ripened ovary of a flowering plant, enclosing the seed or seeds. Apricots, bananas, and grapes, as well as bean pods, corn grains, tomatoes, cucumbers, and (in their shells) acorns and almonds, are all technically fruits.",
+        rating: 4.5,
+        counts: 10,
+        reviews: 5
 
 
     },
     {
         id : 7,
-        name : "Healthy Meal Plan",
-        description : "How we dream about our future",
+        name : "Pure Honey",
         price : 23.99,
-        category : "lunch",
+        category : "Baby Food",
         size: "each",
         image : "/images/products/Honey.png",
-        fullDescription : "Chicken sausage Beef pepperoni come together with seasoned mushrooms and green chilli to deliver a spicy and meaty mouthfeel Chicken sausage Beef pepperoni come together with seasoned mushrooms and green chilli to deliver a spicy and meaty mouthfeel."
+        description : "In a botanical sense, a fruit is the fleshy or dry ripened ovary of a flowering plant, enclosing the seed or seeds. Apricots, bananas, and grapes, as well as bean pods, corn grains, tomatoes, cucumbers, and (in their shells) acorns and almonds, are all technically fruits.",
+        rating: 4.5,
+        counts: 10,
+        reviews: 5
 
 
     },
     {
         id : 8,
-        name : "Fried Chicken Bento",
-        description : "How we dream about our future",
+        name : "Lettuce",
         price : 9.99,
-        category : "meat",
+        category : "Pickle Food",
         size : "1oz",
         image : "/images/products/lettuce.png",
-        fullDescription : "Chicken sausage Beef pepperoni come together with seasoned mushrooms and green chilli to deliver a spicy and meaty mouthfeel Chicken sausage Beef pepperoni come together with seasoned mushrooms and green chilli to deliver a spicy and meaty mouthfeel."
+        description : "In a botanical sense, a fruit is the fleshy or dry ripened ovary of a flowering plant, enclosing the seed or seeds. Apricots, bananas, and grapes, as well as bean pods, corn grains, tomatoes, cucumbers, and (in their shells) acorns and almonds, are all technically fruits.",
+        rating: 4.5,
+        counts: 10,
+        reviews: 5
 
 
     },
     {
         id : 9,
-        name : "Tarragon-Rubbed-Salmon",
-        description : "How we dream about our future",
+        name : "Mango",
         price : 6.99,
-        category : "honey",
+        category : "Fruits",
         size : "1oz",
         image : "/images/products/mango.png",
-        fullDescription : "Chicken sausage Beef pepperoni come together with seasoned mushrooms and green chilli to deliver a spicy and meaty mouthfeel Chicken sausage Beef pepperoni come together with seasoned mushrooms and green chilli to deliver a spicy and meaty mouthfeel."
+        description : "In a botanical sense, a fruit is the fleshy or dry ripened ovary of a flowering plant, enclosing the seed or seeds. Apricots, bananas, and grapes, as well as bean pods, corn grains, tomatoes, cucumbers, and (in their shells) acorns and almonds, are all technically fruits.",
+        rating: 4.5,
+        counts: 10,
+        reviews: 5
 
 
     },
     {
         id : 10,
-        name : "Indian Lunch",
-        description : "How we dream about our future",
+        name : "Fresh Orange",
         price : 8.99,
-        category : "apple",
+        category : "Fruits",
         size : "1ct",
         image : "/images/products/orange.png",
-        fullDescription : "Chicken sausage Beef pepperoni come together with seasoned mushrooms and green chilli to deliver a spicy and meaty mouthfeel Chicken sausage Beef pepperoni come together with seasoned mushrooms and green chilli to deliver a spicy and meaty mouthfeel."
+        description : "In a botanical sense, a fruit is the fleshy or dry ripened ovary of a flowering plant, enclosing the seed or seeds. Apricots, bananas, and grapes, as well as bean pods, corn grains, tomatoes, cucumbers, and (in their shells) acorns and almonds, are all technically fruits.",
+        rating: 4.5,
+        counts: 10,
+        reviews: 5
 
 
     },
     {
         id : 11,
-        name : "Beef Steak",
-        description : "How we dream about our future",
+        name : "Peanut",
         price : 15.99,
-        category : "food",
+        category : "Snacks",
         size: "1lb",
         image : "/images/products/peanut.png",
-        fullDescription : "Chicken sausage Beef pepperoni come together with seasoned mushrooms and green chilli to deliver a spicy and meaty mouthfeel Chicken sausage Beef pepperoni come together with seasoned mushrooms and green chilli to deliver a spicy and meaty mouthfeel."
+        description : "In a botanical sense, a fruit is the fleshy or dry ripened ovary of a flowering plant, enclosing the seed or seeds. Apricots, bananas, and grapes, as well as bean pods, corn grains, tomatoes, cucumbers, and (in their shells) acorns and almonds, are all technically fruits.",
+        rating: 4.5,
+        counts: 10,
+        reviews: 5
 
 
     },
     {
         id : 12,
-        name : "Honey-Soy-Glazzed Salmon With Peppers",
-        description : "How we dream about our future",
+        name : "Pineapple",
         price : 7.99,
-        category : "baby",
+        category : "fruits",
         size : "1ct",
         image : "/images/products/pineapple.png",
-        fullDescription : "Chicken sausage Beef pepperoni come together with seasoned mushrooms and green chilli to deliver a spicy and meaty mouthfeel Chicken sausage Beef pepperoni come together with seasoned mushrooms and green chilli to deliver a spicy and meaty mouthfeel."
+        description : "In a botanical sense, a fruit is the fleshy or dry ripened ovary of a flowering plant, enclosing the seed or seeds. Apricots, bananas, and grapes, as well as bean pods, corn grains, tomatoes, cucumbers, and (in their shells) acorns and almonds, are all technically fruits.",
+        rating: 4.5,
+        counts: 10,
+        reviews: 5
 
 
     },
     {
         id : 13,
-        name : "Salmon with Grapefruit and Lentil Salad",
-        description : "How we dream about our future",
+        name : "Pumpkin",
         price : 9.99,
-        category : "food",
+        category : "Grocery",
         size : "1lb",
         image : "/images/products/pumpkin.png",
-        fullDescription : "Chicken sausage Beef pepperoni come together with seasoned mushrooms and green chilli to deliver a spicy and meaty mouthfeel Chicken sausage Beef pepperoni come together with seasoned mushrooms and green chilli to deliver a spicy and meaty mouthfeel."
+        description : "In a botanical sense, a fruit is the fleshy or dry ripened ovary of a flowering plant, enclosing the seed or seeds. Apricots, bananas, and grapes, as well as bean pods, corn grains, tomatoes, cucumbers, and (in their shells) acorns and almonds, are all technically fruits.",
+        rating: 4.5,
+        counts: 10,
+        reviews: 5
 
 
     },
     {
         id : 14,
-        name : "Lamoni Salmon Piccata",
-        description : "How we dream about our future",
+        name : "Tea Leafy",
         price : 10.99,
-        category : "meat",
+        category : "Pickle Food",
         size : "1ct",
         image : "/images/products/tea-leafy.png",
-        fullDescription : "Chicken sausage Beef pepperoni come together with seasoned mushrooms and green chilli to deliver a spicy and meaty mouthfeel Chicken sausage Beef pepperoni come together with seasoned mushrooms and green chilli to deliver a spicy and meaty mouthfeel."
+        description : "In a botanical sense, a fruit is the fleshy or dry ripened ovary of a flowering plant, enclosing the seed or seeds. Apricots, bananas, and grapes, as well as bean pods, corn grains, tomatoes, cucumbers, and (in their shells) acorns and almonds, are all technically fruits.",
+        rating: 4.5,
+        counts: 10,
+        reviews: 5
 
 
     },
     {
         id : 15,
-        name : "Pork Tendelorin With Quinoa Pilaf",
-        description : "How we dream about our future",
+        name : "Vegetables",
         price : 12.99,
-        category : "fish",
+        category : "Pickle Food",
         size : "1ct",
         image : "/images/products/vegetables-leafs.png",
-        fullDescription : "Chicken sausage Beef pepperoni come together with seasoned mushrooms and green chilli to deliver a spicy and meaty mouthfeel Chicken sausage Beef pepperoni come together with seasoned mushrooms and green chilli to deliver a spicy and meaty mouthfeel."
+        description : "Most fresh vegetables are low in calories and have a water content in excess of 70 percent, with only about 3.5 percent protein and less than 1 percent fat. ... The root vegetables include beets, carrots, radishes, sweet potatoes, and turnips. Stem vegetables include asparagus and kohlrabi.",
+        rating: 4.5,
+        counts: 10,
+        reviews: 5
     }
 ]
 

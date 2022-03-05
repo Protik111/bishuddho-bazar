@@ -4,8 +4,9 @@ import Choose from '../components/Choose';
 import Header from '../components/Header'
 import Navbar from '../components/Navbar'
 import Products from '../components/Products';
+import axios from 'axios';
 
-export default function Home() {
+export default function Home({ products }) {
   const time = new Date();
   time.setSeconds(time.getSeconds() + 600);
   return (
@@ -18,8 +19,17 @@ export default function Home() {
       <Navbar></Navbar>
       <Header expiryTimestamp={time}></Header>
       <Categories></Categories>
-      <Products></Products>
+      <Products products={products}></Products>
       <Choose></Choose>
     </div>
   )
+}
+
+export async function getServerSideProps() {
+  const res = await axios.get('http://localhost:3000/api/product');
+  return {
+    props: {
+        products: res.data
+    }
+  }
 }

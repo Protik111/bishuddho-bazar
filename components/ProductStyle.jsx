@@ -4,9 +4,9 @@ import { BsFillCartPlusFill } from 'react-icons/bs';
 import Link from "next/link";
 
 const ProductStyle = ({ item }) => {
-    const {id, name, description, size, price, category, image } = item;
+    const {_id, name, description, size, price, category, image } = item;
     return (
-        <Link href={`/product/${id}`} passHref>
+        <Link href={`/product/${_id}`} passHref>
         <div className={`${styles.container} col-md-2 m-3 px-3`}>
             <div className="pt-3 d-flex justify-content-center">
                 <Image className={styles.productImg} src={image} width={200} height={130}></Image>

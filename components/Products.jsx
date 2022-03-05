@@ -1,7 +1,6 @@
-import data from '../utils/data.js';
 import ProductStyle from './ProductStyle';
 
-const Products = () => {
+const Products = ({ products }) => {
     return (
         <div className="mt-4 mb-4">
             <div className="d-flex justify-content-center">
@@ -12,11 +11,12 @@ const Products = () => {
             </div>
             <div className="row ms-5">
                 {
-                    data.map(item => <ProductStyle item={item} key={item.id}></ProductStyle>)
+                    products.map(item => <ProductStyle item={item} key={item._id}></ProductStyle>)
                 }
             </div>
         </div>
     );
 };
+
 
 export default Products;

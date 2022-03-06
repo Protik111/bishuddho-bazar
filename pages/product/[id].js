@@ -1,14 +1,15 @@
 import Image from 'next/image';
-import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
 import Navbar from '../../components/Navbar';
-import data from '../../utils/data.js';
 import styles from '../../styles/SingleProduct.module.css';
 import { Box } from "@mui/system";
 import LinearProgress from '@mui/material/LinearProgress';
 import axios from 'axios';
+import { useContext } from 'react';
+import { StoreContext } from '../../utils/context';
 
 const SingleProduct = ({ product }) => {
+    const { state, dispatch } = useContext(StoreContext);
+    const { dummy } = state;
     // const [item, setItem] = useState([]);
     // const router = useRouter();
     // const { id } = router.query;
@@ -16,6 +17,11 @@ const SingleProduct = ({ product }) => {
     //     const product = data.find(itm => itm.id === parseInt(id));
     //     setItem(product);
     // }, [id])
+    const handleCart = async () => {
+        if(product.counts <= 0 ){
+            alert("Products Not Available");
+        }
+    }
     if (!product) {
         return (
             <Box mt={20} sx={{ width: '100%' }}>
@@ -41,7 +47,7 @@ const SingleProduct = ({ product }) => {
                             <p>+</p>
                         </div>
                         <div className="ms-2">
-                            <button className="btn btn-success px-4 py-3">Add To Cart</button>
+                            <button className="btn btn-success px-4 py-3" onClick={handleCart}>Add To Cart</button>
                         </div>
                     </div>
                     <div className={styles.categoryPrice}>

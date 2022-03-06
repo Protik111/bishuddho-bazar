@@ -43,5 +43,15 @@
     caret-color: #0e8d63;
 }
 .icons {
+    position: relative;
     font-size: 1.8rem;
+}
+.cartLength{
+    position: relative;
+    top: -5px;
+    right: 5px;
+    background-color: red;
+    border-radius: 50%;
+    padding: 1px 6px;
+    color: white;
 }

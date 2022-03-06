@@ -9,7 +9,8 @@ import { StoreContext } from '../../utils/context';
 
 const SingleProduct = ({ product }) => {
     const { state, dispatch } = useContext(StoreContext);
-    const { dummy } = state;
+    const { dummy, cart } = state;
+    console.log('cart', cart);
     // const [item, setItem] = useState([]);
     // const router = useRouter();
     // const { id } = router.query;
@@ -21,6 +22,7 @@ const SingleProduct = ({ product }) => {
         if(product.counts <= 0 ){
             alert("Products Not Available");
         }
+        dispatch({ type: 'ADD_TO_CART', payload: {...product, counts: 1} })
     }
     if (!product) {
         return (

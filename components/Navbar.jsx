@@ -3,9 +3,13 @@ import styles from '../styles/Navbar.module.css'
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { RiAccountCircleLine } from 'react-icons/ri';
 import Link from 'next/link';
+import { useContext } from 'react';
+import { StoreContext } from '../utils/context';
 
 
 const Navbar = ({ search }) => {
+    const { state, dispatch } = useContext(StoreContext);
+    const { cart } = state;
     return (
         <div className={`${styles.container}`}>
             <Link href="/" passHref>
@@ -25,7 +29,7 @@ const Navbar = ({ search }) => {
                         <a href="">Contact Us</a>
                     </li>}
                     <li>
-                        <a href=""><AiOutlineShoppingCart className={styles.icons}></AiOutlineShoppingCart></a>
+                        <a className={styles.cartLengthContainer} href=""><AiOutlineShoppingCart className={styles.icons}></AiOutlineShoppingCart></a><span className={styles.cartLength}>{cart.length}</span>
                     </li>
                     <li>
                         <a href=""><RiAccountCircleLine className={styles.icons}></RiAccountCircleLine></a>

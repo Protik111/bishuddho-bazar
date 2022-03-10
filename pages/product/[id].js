@@ -4,13 +4,15 @@ import styles from '../../styles/SingleProduct.module.css';
 import { Box } from "@mui/system";
 import LinearProgress from '@mui/material/LinearProgress';
 import axios from 'axios';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { StoreContext } from '../../utils/context';
+import CartModal from '../../components/CartModal';
 
 const SingleProduct = ({ product }) => {
     const { state, dispatch } = useContext(StoreContext);
+    const [showCart, setShowCart] = useState(false);
     const { dummy, cart } = state;
-    console.log('cart', cart);
+    // console.log('cart', cart);
     // const [item, setItem] = useState([]);
     // const router = useRouter();
     // const { id } = router.query;
@@ -18,12 +20,17 @@ const SingleProduct = ({ product }) => {
     //     const product = data.find(itm => itm.id === parseInt(id));
     //     setItem(product);
     // }, [id])
+    const handleCartModal = () => {
+        setShowCart(!showCart);
+    }
+
     const handleCart = async () => {
-        if(product.counts <= 0 ){
+        if (product.counts <= 0) {
             alert("Products Not Available");
         }
-        dispatch({ type: 'ADD_TO_CART', payload: {...product, counts: 1} })
+        dispatch({ type: 'ADD_TO_CART', payload: { ...product, counts: 1 } })
     }
+
     if (!product) {
         return (
             <Box mt={20} sx={{ width: '100%' }}>
@@ -33,7 +40,8 @@ const SingleProduct = ({ product }) => {
     }
     return (
         <div>
-            <Navbar search={false}></Navbar>
+            <Navbar search={false} handleCartModal={handleCartModal}></Navbar>
+            {showCart && <CartModal showCart={showCart} setShowCart={setShowCart}></CartModal>}
             <div className="row mt-4">
                 <div className="col-md-5 offset-md-1 mt-5 offset-1">
                     <Image className={styles.singleImg} src={product.image} alt="Picture of the product" width={330} height={300}></Image>
@@ -64,7 +72,7 @@ const SingleProduct = ({ product }) => {
 
 export default SingleProduct;
 
-export async function getServerSideProps(context){
+export async function getServerSideProps(context) {
     const { params } = context;
     const res = await axios.get(`http://localhost:3000/api/product/${params.id}`);
     return {

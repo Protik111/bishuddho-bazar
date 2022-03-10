@@ -7,13 +7,14 @@ import { useContext } from 'react';
 import { StoreContext } from '../utils/context';
 
 
-const Navbar = ({ search }) => {
+const Navbar = ({ search, showCart, setShowCart, handleCart, handleCartModal }) => {
     const { state, dispatch } = useContext(StoreContext);
     const { cart } = state;
+
     return (
         <div className={`${styles.container}`}>
             <Link href="/" passHref>
-                <div className='ms-5 d-flex justify-content-center' style={{cursor: 'pointer'}}>
+                <div className='ms-5 d-flex justify-content-center' style={{ cursor: 'pointer' }}>
                     <Image className={styles.logo} src="/logo.jpg" width={90} height={90}></Image>
                 </div>
             </Link>
@@ -29,7 +30,14 @@ const Navbar = ({ search }) => {
                         <a href="">Contact Us</a>
                     </li>}
                     <li>
-                        <a className={styles.cartLengthContainer} href=""><AiOutlineShoppingCart className={styles.icons}></AiOutlineShoppingCart></a><span className={styles.cartLength}>{cart.length}</span>
+                        <a onClick={(e) => {
+                            e.preventDefault();
+                            if (search===false) {
+                                handleCartModal()
+                            } else {
+                                handleCart()
+                            }
+                        }} className={styles.cartLengthContainer} href=""><AiOutlineShoppingCart className={styles.icons}></AiOutlineShoppingCart></a><span className={styles.cartLength}>{cart.length}</span>
                     </li>
                     <li>
                         <a href=""><RiAccountCircleLine className={styles.icons}></RiAccountCircleLine></a>

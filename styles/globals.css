@@ -20,7 +20,7 @@ a {
   position: fixed;
   top: 0;
   right: 0;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.5);
   height: 100%;
   width: 100%;
   z-index: 2000;
@@ -32,8 +32,9 @@ a {
   right: -100%;
   transform: translate(-50%, 0%);
   background-color: white;
-  width: 90%;
+  width: 88%;
   height: 100%;
+  overflow-y: auto;
+  float: left;
   /* text-align: center; */
-  border-radius: 7px;
 }

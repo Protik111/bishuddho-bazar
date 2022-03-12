@@ -44,20 +44,20 @@ const SingleProduct = ({ product }) => {
         )
     }
 
-    const handleDecrease = () => {
-        console.log('clicked');
+    const handleDecrease = (product, count) => {
+        if (item[0].counts < 0) {
+            alert("Products Cannot Be Negative");
+        } else {
+            dispatch({ type: 'ADD_TO_CART', payload: { ...product, counts: count - 1 }})
+        }
     }
     const handleIncrease = async (product, count) => {
         if (item[0].counts >= product.counts) {
-            alert("Products Not Available");
+            alert(`${product.counts} Products Are Available`);
         } else {
             dispatch({ type: 'ADD_TO_CART', payload: { ...product, counts: count + 1 }})
         }
     }
-    // if(item[0].counts > product.counts){
-    //     alert('Product Exceeds Limit')
-    // }
-    // console.log(item[0].counts > product.counts);
     return (
         <div>
             <Navbar search={false} handleCartModal={handleCartModal}></Navbar>
@@ -72,7 +72,7 @@ const SingleProduct = ({ product }) => {
                     <p className={styles.price}>${product.price}</p>
                     <div className={styles.cartAdd}>
                         <div className={`${styles.numbers} px-3`}>
-                            <button className={`${styles.countsBtn}`} onClick={handleDecrease}>-</button>
+                            <button className={`${styles.countsBtn}`} onClick={() => handleDecrease(product, item.length === 0 ? 0 : item[0].counts)} disabled={item.length===0 ? true : item[0].counts===1 ? true : false}>-</button>
                             <p>
                                 {
                                     item.length === 0 ? 0 : item[0].counts

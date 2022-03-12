@@ -32,3 +32,13 @@
     border-radius: 50%;
     padding: 5px;
 }
+.countsBtn{
+    border: none;
+    cursor: pointer;
+    font-size: larger;
+    transition: transform 0.1s ease;
+    font-weight: 900;
+}
+.countsBtn:hover{
+    transform: scale(1.2);
+}

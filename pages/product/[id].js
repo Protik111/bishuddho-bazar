@@ -12,7 +12,7 @@ const SingleProduct = ({ product }) => {
     const { state, dispatch } = useContext(StoreContext);
     const [showCart, setShowCart] = useState(false);
     const { dummy, cart } = state;
-    // console.log('cart', cart);
+    console.log('cart', cart);
     // const [item, setItem] = useState([]);
     // const router = useRouter();
     // const { id } = router.query;
@@ -31,13 +31,33 @@ const SingleProduct = ({ product }) => {
         dispatch({ type: 'ADD_TO_CART', payload: { ...product, counts: 1 } })
     }
 
-    if (!product) {
+
+    const item = cart.filter(item => item._id === product._id)
+    console.log('itm', item);
+    // console.log('test', item[0].counts);
+
+    if (!product && item.length === 0) {
         return (
             <Box mt={20} sx={{ width: '100%' }}>
                 <LinearProgress />
             </Box>
         )
     }
+
+    const handleDecrease = () => {
+        console.log('clicked');
+    }
+    const handleIncrease = async (product, count) => {
+        if (item[0].counts >= product.counts) {
+            alert("Products Not Available");
+        } else {
+            dispatch({ type: 'ADD_TO_CART', payload: { ...product, counts: count + 1 }})
+        }
+    }
+    // if(item[0].counts > product.counts){
+    //     alert('Product Exceeds Limit')
+    // }
+    // console.log(item[0].counts > product.counts);
     return (
         <div>
             <Navbar search={false} handleCartModal={handleCartModal}></Navbar>
@@ -51,13 +71,17 @@ const SingleProduct = ({ product }) => {
                     <p className="me-1">{product.description}</p>
                     <p className={styles.price}>${product.price}</p>
                     <div className={styles.cartAdd}>
-                        <div className={`${styles.numbers}`}>
-                            <p>-</p>
-                            <p>1</p>
-                            <p>+</p>
+                        <div className={`${styles.numbers} px-3`}>
+                            <button className={`${styles.countsBtn}`} onClick={handleDecrease}>-</button>
+                            <p>
+                                {
+                                    item.length === 0 ? 0 : item[0].counts
+                                }
+                            </p>
+                            <button className={styles.countsBtn} onClick={() => handleIncrease(product, item.length === 0 ? 0 : item[0].counts)} disabled={item.length===0}>+</button>
                         </div>
                         <div className="ms-2">
-                            <button className="btn btn-success px-4 py-3" onClick={handleCart}>Add To Cart</button>
+                            <button className="btn btn-success px-4 py-3" onClick={handleCart} disabled={item.length>0}>Add To Cart</button>
                         </div>
                     </div>
                     <div className={styles.categoryPrice}>

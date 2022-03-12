@@ -11,7 +11,8 @@ const CartStyle = ({ item }) => {
             <div className={`${styles.price} mx-md-5 my-md-2`}>
                 <h6>{item.name}</h6>
                 <p>Item Price: ${item.price}</p>
-                <h5>Total : $50</h5>
+                <p>Total Items: {item.counts}</p>
+                <h5>Total : ${item.counts * item.price}</h5>
             </div>
             <div className={styles.delete}>
                 <span><MdDelete style={{fontSize: '30px', color: 'red'}}></MdDelete></span>

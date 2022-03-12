@@ -48,14 +48,14 @@ const SingleProduct = ({ product }) => {
         if (item[0].counts < 0) {
             alert("Products Cannot Be Negative");
         } else {
-            dispatch({ type: 'ADD_TO_CART', payload: { ...product, counts: count - 1 }})
+            dispatch({ type: 'ADD_TO_CART', payload: { ...product, counts: count - 1 } })
         }
     }
     const handleIncrease = async (product, count) => {
         if (item[0].counts >= product.counts) {
             alert(`${product.counts} Products Are Available`);
         } else {
-            dispatch({ type: 'ADD_TO_CART', payload: { ...product, counts: count + 1 }})
+            dispatch({ type: 'ADD_TO_CART', payload: { ...product, counts: count + 1 } })
         }
     }
     return (
@@ -72,21 +72,24 @@ const SingleProduct = ({ product }) => {
                     <p className={styles.price}>${product.price}</p>
                     <div className={styles.cartAdd}>
                         <div className={`${styles.numbers} px-3`}>
-                            <button className={`${styles.countsBtn}`} onClick={() => handleDecrease(product, item.length === 0 ? 0 : item[0].counts)} disabled={item.length===0 ? true : item[0].counts===1 ? true : false}>-</button>
+                            <button className={`${styles.countsBtn}`} onClick={() => handleDecrease(product, item.length === 0 ? 0 : item[0].counts)} disabled={item.length === 0 ? true : item[0].counts === 1 ? true : false}>-</button>
                             <p>
                                 {
                                     item.length === 0 ? 0 : item[0].counts
                                 }
                             </p>
-                            <button className={styles.countsBtn} onClick={() => handleIncrease(product, item.length === 0 ? 0 : item[0].counts)} disabled={item.length===0}>+</button>
+                            <button className={styles.countsBtn} onClick={() => handleIncrease(product, item.length === 0 ? 0 : item[0].counts)} disabled={item.length === 0}>+</button>
                         </div>
                         <div className="ms-2">
-                            <button className="btn btn-success px-4 py-3" onClick={handleCart} disabled={item.length>0}>Add To Cart</button>
+                            <button className="btn btn-success px-4 py-3" onClick={handleCart} disabled={item.length > 0}>Add To Cart</button>
                         </div>
                     </div>
+                    <div>
+                        <p className={`${styles.category} mt-2`}>Available Items: {product.counts}</p>
+                    </div>
                     <div className={styles.categoryPrice}>
-                        <p className={`${styles.category} mt-2`}>Category: {product.category}</p>
-                        <p className={`${styles.size} ms-2 mt-2`}>{product.size}</p>
+                        <p className={`${styles.category}`}>Category: {product.category}</p>
+                        <p className={`${styles.size} ms-2`}>{product.size}</p>
                     </div>
                 </div>
             </div>

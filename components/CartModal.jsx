@@ -52,7 +52,9 @@ const CartModal = ({ showCart, setShowCart }) => {
                                 <h6 className="mt-2">Proceed To Checkout</h6>
                             </div>
                             <div className={`${styles.price} px-3`}>
-                                <h6 className='mt-2'>$26.00</h6>
+                                <h6 className='mt-2'>
+                                    ${cart.reduce((acc, cur) => acc + cur.price * cur.counts, 0)}
+                                    </h6>
                             </div></>
                     ) : (<div className="">
                         <h6 className="">There is no Product in the cart.</h6>

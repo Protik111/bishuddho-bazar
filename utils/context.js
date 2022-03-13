@@ -3,7 +3,8 @@ import { createContext, useReducer } from 'react';
 export const StoreContext = createContext();
 
 const initialState = {
-    cart: []
+    cart: [],
+    showCart: false
 };
 
 const reducer = (state, action) => {
@@ -14,6 +15,16 @@ const reducer = (state, action) => {
             const cartProducts = existProduct ? state.cart.map(product => product._id === existProduct._id ? newProduct : product) : [...state.cart, newProduct]
             return {
                 ...state, cart: cartProducts
+            }
+        case 'REMOVE_FROM_CART':
+            const deleteItem = action.payload;
+            const restItems = state.cart.filter(item => item._id !== deleteItem._id)
+            return {
+                ...state, cart: restItems
+            }
+        case 'EDIT_SHOW_MODAL':
+            return {
+                ...state, showCart: action.payload
             }
         default:
             return state;

@@ -7,7 +7,7 @@ import { useContext } from 'react';
 import { StoreContext } from '../utils/context';
 
 
-const Navbar = ({ search, showCart, setShowCart, handleCart, handleCartModal }) => {
+const Navbar = ({ search, handleCart, handleCartModal }) => {
     const { state, dispatch } = useContext(StoreContext);
     const { cart } = state;
 
@@ -39,8 +39,8 @@ const Navbar = ({ search, showCart, setShowCart, handleCart, handleCartModal }) 
                             }
                         }} className={styles.cartLengthContainer} href=""><AiOutlineShoppingCart className={styles.icons}></AiOutlineShoppingCart></a><span className={styles.cartLength}>{cart.length}</span>
                     </li>
-                    <li>
-                        <a href=""><RiAccountCircleLine className={styles.icons}></RiAccountCircleLine></a>
+                    <li className={styles.profile}>
+                        <Link href="/login" passHref><RiAccountCircleLine className={styles.icons}></RiAccountCircleLine></Link>
                     </li>
                 </ul>
             </div>

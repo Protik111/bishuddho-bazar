@@ -22,10 +22,16 @@
 }
 .checkout:hover{
     background-color: #0c855c;
-    cursor: pointer;
 }
 .checkout h6 {
     font-size: large;
+}
+.proceed{
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.proceed:hover{
+    transform: scale(1.1);
 }
 .price{
     background-color: white;

@@ -6,19 +6,20 @@ import 'aos/dist/aos.css';
 import styles from '../styles/CartModal.module.css';
 import { StoreContext } from '../utils/context';
 import CartStyle from './CartStyle';
+import Link from "next/link";
 
-const CartModal = ({ showCart, setShowCart }) => {
+const CartModal = () => {
     const { state, dispatch } = useContext(StoreContext);
-    const { cart } = state;
+    const { cart, showCart } = state;
     const modalRef = useRef();
 
     const closeModal = (e) => {
         if (e.target === modalRef.current) {
-            setShowCart(false);
+            dispatch({ type: 'EDIT_SHOW_MODAL', payload: !showCart })
         }
     }
     const handleCancel = () => {
-        setShowCart(false)
+        dispatch({ type: 'EDIT_SHOW_MODAL', payload: !showCart })
     }
     useEffect(() => {
         AOS.init({
@@ -48,14 +49,17 @@ const CartModal = ({ showCart, setShowCart }) => {
                 <div className={`${styles.checkout} p-4`}>
                     {cart.length > 0 ? (
                         <>
-                            <div className="px-5">
-                                <h6 className="mt-2">Proceed To Checkout</h6>
+                            <div className={`${styles.proceed} px-5`}>
+                                <Link href="/login" passHref>
+                                    <h6 className="mt-2">Proceed To Checkout</h6>
+                                </Link>
                             </div>
                             <div className={`${styles.price} px-3`}>
                                 <h6 className='mt-2'>
-                                    ${cart.reduce((acc, cur) => acc + cur.price * cur.counts, 0)}
-                                    </h6>
-                            </div></>
+                                    ${cart.reduce((acc, cur) => acc + cur.price * cur.counts, 0).toFixed(2)}
+                                </h6>
+                            </div>
+                        </>
                     ) : (<div className="">
                         <h6 className="">There is no Product in the cart.</h6>
                     </div>)}

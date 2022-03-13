@@ -5,14 +5,16 @@ import Header from '../components/Header'
 import Navbar from '../components/Navbar'
 import Products from '../components/Products';
 import axios from 'axios';
-import { useState } from 'react';
+import { useContext } from 'react';
 import CartModal from '../components/CartModal';
+import { StoreContext } from '../utils/context';
 
 export default function Home({ products }) {
-  const [showCart, setShowCart] = useState(false);
+  const { state, dispatch } = useContext(StoreContext);
+  const { showCart } = state;
 
   const handleCart = () => {
-    setShowCart(!showCart);
+    dispatch({ type: 'EDIT_SHOW_MODAL', payload: !showCart })
   }
 
   const time = new Date();
@@ -24,8 +26,8 @@ export default function Home({ products }) {
         <meta name="description" content="Online shop for fresh foods" />
         <link rel="icon" href="/logo.jpg" />
       </Head>
-      {showCart && <CartModal showCart={showCart} setShowCart={setShowCart}></CartModal>}
-      <Navbar showCart={showCart} setShowCart={setShowCart} handleCart={handleCart}></Navbar>
+      {showCart && <CartModal ></CartModal>}
+      <Navbar handleCart={handleCart}></Navbar>
       <Header expiryTimestamp={time}></Header>
       <Categories></Categories>
       <Products products={products}></Products>

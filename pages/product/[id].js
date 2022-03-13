@@ -4,24 +4,18 @@ import styles from '../../styles/SingleProduct.module.css';
 import { Box } from "@mui/system";
 import LinearProgress from '@mui/material/LinearProgress';
 import axios from 'axios';
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { StoreContext } from '../../utils/context';
 import CartModal from '../../components/CartModal';
+import Head from 'next/head'
 
 const SingleProduct = ({ product }) => {
     const { state, dispatch } = useContext(StoreContext);
-    const [showCart, setShowCart] = useState(false);
-    const { dummy, cart } = state;
-    console.log('cart', cart);
-    // const [item, setItem] = useState([]);
-    // const router = useRouter();
-    // const { id } = router.query;
-    // useEffect(() => {
-    //     const product = data.find(itm => itm.id === parseInt(id));
-    //     setItem(product);
-    // }, [id])
+    const { dummy, cart, showCart } = state;
+    // console.log('cart', cart);
+    
     const handleCartModal = () => {
-        setShowCart(!showCart);
+        dispatch({ type: 'EDIT_SHOW_MODAL', payload: true })
     }
 
     const handleCart = async () => {
@@ -31,10 +25,8 @@ const SingleProduct = ({ product }) => {
         dispatch({ type: 'ADD_TO_CART', payload: { ...product, counts: 1 } })
     }
 
-
     const item = cart.filter(item => item._id === product._id)
-    console.log('itm', item);
-    // console.log('test', item[0].counts);
+    // console.log('itm', item);
 
     if (!product && item.length === 0) {
         return (
@@ -60,8 +52,13 @@ const SingleProduct = ({ product }) => {
     }
     return (
         <div>
+            <Head>
+                <title>{product.name}</title>
+                <meta name="description" content="Online shop for fresh foods" />
+                <link rel="icon" href="/logo.jpg" />
+            </Head>
             <Navbar search={false} handleCartModal={handleCartModal}></Navbar>
-            {showCart && <CartModal showCart={showCart} setShowCart={setShowCart}></CartModal>}
+            {showCart && <CartModal></CartModal>}
             <div className="row mt-4">
                 <div className="col-md-5 offset-md-1 mt-5 offset-1">
                     <Image className={styles.singleImg} src={product.image} alt="Picture of the product" width={330} height={300}></Image>

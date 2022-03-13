@@ -21,6 +21,15 @@
     font-weight: 400;
     color: white;
 }
+.profile{
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 400;
+}
+.profile:hover{
+    color: rgb(228, 226, 226);
+    cursor: pointer;
+}
 .list ul li a:hover {
     color: rgb(228, 226, 226);
 }

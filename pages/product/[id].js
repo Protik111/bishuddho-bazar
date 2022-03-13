@@ -11,9 +11,9 @@ import Head from 'next/head'
 
 const SingleProduct = ({ product }) => {
     const { state, dispatch } = useContext(StoreContext);
-    const { dummy, cart, showCart } = state;
+    const { cart, showCart } = state;
     // console.log('cart', cart);
-    
+
     const handleCartModal = () => {
         dispatch({ type: 'EDIT_SHOW_MODAL', payload: true })
     }

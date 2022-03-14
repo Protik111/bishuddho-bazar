@@ -1,12 +1,17 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import CartModal from '../components/CartModal';
 import Navbar from '../components/Navbar';
 import { StoreContext } from '../utils/context';
 import styles from '../styles/Login.module.css';
+import Link from 'next/link';
 
 const login = () => {
     const { state, dispatch } = useContext(StoreContext);
     const { showCart } = state;
+
+    useEffect(() => {
+        dispatch({ type: 'EDIT_SHOW_MODAL', payload: false })
+    }, [])
     
     const handleCartModal = () => {
         dispatch({ type: 'EDIT_SHOW_MODAL', payload: true })
@@ -38,7 +43,7 @@ const login = () => {
                 </form>
                 <div className="d-flex justify-content-center mt-2">
                     <h6 className={styles.account}>Don't Have an Account?</h6>
-                    <h6 className={`${styles.register} ms-1`}>Register</h6>
+                    <Link href="/register" passHref><h6 className={`${styles.register} ms-1`}>Register</h6></Link>
                 </div>
             </div>
         </div>

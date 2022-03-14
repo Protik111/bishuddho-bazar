@@ -2,7 +2,7 @@
     margin: auto;
     background-color: #e8e9eb;
     width: 45%;
-    height: 65vh;
+    min-height: 65vh;
     border-radius: 20px;
 }
 

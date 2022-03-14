@@ -4,7 +4,9 @@ import { body, validationResult } from 'express-validator';
 import gravatar from 'gravatar';
 import bcrypt from 'bcrypt';
 import User from '../../../models/User';
-
+import jwt from 'jsonwebtoken';
+// import auth from '../../_middleware';
+import auth from '../../../utils/authMiddleware';
 const router = nc();
 
 //@route GET /api/product
@@ -46,7 +48,15 @@ router.post(
             newUser.password = await bcrypt.hash(password, salt);
             //saving to db
             await newUser.save();
-            return res.status(200).json('User Added')
+
+            const payload = {
+                user: {
+                    id: newUser.id
+                }
+            };
+            jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: 360000 }, (err, token) => {
+                res.status(200).json({ token });
+            })
 
         } catch (error) {
             console.log(error.message);
@@ -54,5 +64,8 @@ router.post(
         }
     })
 
-
+router.get(auth, async (req, res) => {
+    await connectDb();
+    return res.json({ msg: 'Protected Route'})
+})
 export default router;

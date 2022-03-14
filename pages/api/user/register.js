@@ -5,12 +5,10 @@ import gravatar from 'gravatar';
 import bcrypt from 'bcrypt';
 import User from '../../../models/User';
 import jwt from 'jsonwebtoken';
-// import auth from '../../_middleware';
-import auth from '../../../utils/authMiddleware';
 const router = nc();
 
-//@route GET /api/product
-//@desc get all the products
+//@route POST /api/user/register
+//@desc creating a user
 //@access public
 router.post(
     body('name', 'Name is Required.').notEmpty(),
@@ -64,8 +62,4 @@ router.post(
         }
     })
 
-router.get(auth, async (req, res) => {
-    await connectDb();
-    return res.json({ msg: 'Protected Route'})
-})
 export default router;

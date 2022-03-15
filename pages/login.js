@@ -6,6 +6,8 @@ import styles from '../styles/Login.module.css';
 import Link from 'next/link';
 import axios from 'axios';
 import setAuthToken from '../utils/setAuthToken';
+import { v4 as uuidv4 } from 'uuid';
+import Alerts from '../components/Alerts';
 
 const login = () => {
     const { state, dispatch } = useContext(StoreContext);
@@ -16,9 +18,19 @@ const login = () => {
     });
 
     const loadUser = async () => {
-        const { data } = await axios.get('http://localhost:3000/api/user/auth');
-        console.log('load user', data);
-        dispatch({ type: 'LOAD_USER', payload: data })
+        try {
+            const { data } = await axios.get('http://localhost:3000/api/user/auth');
+            console.log('load user', data);
+            dispatch({ type: 'LOAD_USER', payload: data })
+        } catch (error) {
+            dispatch({ type: 'LOAD_USER_FAIL' })
+        }
+    }
+    const triggerAlert = (msg, alertType) => {
+        const id = uuidv4();
+        dispatch({ type: 'SET_ALERT', payload: { id, msg, alertType } });
+
+        setTimeout(() => dispatch({ type: 'REMOVE_ALERT', payload: id }), 3000);
     }
     useEffect(() => {
         const token = localStorage.getItem('token');
@@ -47,15 +59,16 @@ const login = () => {
         try {
             const { data } = await axios.post('http://localhost:3000/api/user/auth', { email, password });
             dispatch({ type: 'LOGIN_SUCCESS', payload: data });
-
         } catch (error) {
-            alert(error);
+            dispatch({ type: 'LOGIN_FAIL' });
+            triggerAlert('Invalid Credentials', 'danger');
         }
     }
     console.log('state', state);
     return (
         <div className="container-fluid p-0">
             <Navbar search={false} handleCartModal={handleCartModal}></Navbar>
+            <Alerts></Alerts>
             {showCart && <CartModal></CartModal>}
 
             <div className={`${styles.loginContainer} mt-5`}>

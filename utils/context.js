@@ -5,6 +5,7 @@ export const StoreContext = createContext();
 const initialState = {
     cart: [],
     showCart: false,
+    alerts: [],
     userInfo: {
         isAuthenticated: false,
         token: typeof window !== 'undefined' && localStorage.getItem('token'),
@@ -15,6 +16,15 @@ const initialState = {
 
 const reducer = (state, action) => {
     switch(action.type) {
+        case 'SET_ALERT':
+            return {
+                ...state, alerts: [...state.alerts, action.payload]
+            }
+        case 'REMOVE_ALERT':
+            return {
+                ...state,
+                alerts: state.alerts.filter(alert => alert.id !== action.payload)
+            }
         case 'ADD_TO_CART':
             const newProduct = action.payload;
             const existProduct = state.cart.find(product => product._id === newProduct._id);
@@ -39,8 +49,20 @@ const reducer = (state, action) => {
                 userInfo: {
                     isAuthenticated: true,
                     token: action.payload.token,
-                    user: '',
+                    user: null,
                     loading: false
+                }
+            }
+        case 'LOGIN_FAIL':
+        case 'LOAD_USER_FAIL':
+            localStorage.removeItem('token')
+            return {
+                ...state,
+                userInfo: {
+                    isAuthenticated: false,
+                    token: null,
+                    user: null,
+                    loading: true
                 }
             }
         case 'LOAD_USER':

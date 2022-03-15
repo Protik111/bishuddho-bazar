@@ -15,13 +15,17 @@ export default function Home({ products }) {
   const { showCart } = state;
 
   const loadUser = async () => {
-    const { data } = await axios.get('http://localhost:3000/api/user/auth');
-    console.log('load user', data);
-    dispatch({ type: 'LOAD_USER', payload: data })
+    try {
+      const { data } = await axios.get('http://localhost:3000/api/user/auth');
+      console.log('load user', data);
+      dispatch({ type: 'LOAD_USER', payload: data })
+    } catch (error) {
+      dispatch({ type: 'LOAD_USER_FAIL' })
+    }
   }
   useEffect(() => {
     const token = localStorage.getItem('token');
-    if(token){
+    if (token) {
       console.log('token from useEffect', token);
       setAuthToken(token);
       loadUser();

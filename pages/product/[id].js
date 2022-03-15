@@ -14,11 +14,16 @@ const SingleProduct = ({ product }) => {
     const { state, dispatch } = useContext(StoreContext);
     const { cart, showCart } = state;
     // console.log('cart', cart);
-    
+
     const loadUser = async () => {
-        const { data } = await axios.get('http://localhost:3000/api/user/auth');
-        console.log('load user', data);
-        dispatch({ type: 'LOAD_USER', payload: data })
+        try {
+            const { data } = await axios.get('http://localhost:3000/api/user/auth');
+            console.log('load user', data);
+            dispatch({ type: 'LOAD_USER', payload: data })
+        } catch (error) {
+            dispatch({ type: 'LOAD_USER_FAIL' })
+        }
+        
     }
     useEffect(() => {
         const token = localStorage.getItem('token');

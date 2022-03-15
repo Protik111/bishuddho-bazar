@@ -43,6 +43,7 @@ const reducer = (state, action) => {
                 ...state, showCart: action.payload
             }
         case 'LOGIN_SUCCESS':
+        case 'REGISTER_SUCCESS':
             localStorage.setItem('token', action.payload.token)
             return {
                 ...state,
@@ -54,6 +55,7 @@ const reducer = (state, action) => {
                 }
             }
         case 'LOGIN_FAIL':
+        case 'REGISTER_FAIL':
         case 'LOAD_USER_FAIL':
             localStorage.removeItem('token')
             return {

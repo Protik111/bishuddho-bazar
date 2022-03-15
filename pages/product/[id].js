@@ -9,6 +9,8 @@ import { StoreContext } from '../../utils/context';
 import CartModal from '../../components/CartModal';
 import Head from 'next/head'
 import setAuthToken from '../../utils/setAuthToken';
+import { v4 as uuidv4 } from 'uuid';
+import Alerts from '../../components/Alerts';
 
 const SingleProduct = ({ product }) => {
     const { state, dispatch } = useContext(StoreContext);
@@ -38,11 +40,19 @@ const SingleProduct = ({ product }) => {
         dispatch({ type: 'EDIT_SHOW_MODAL', payload: true })
     }
 
+    const triggerAlert = (msg, alertType) => {
+        const id = uuidv4();
+        dispatch({ type: 'SET_ALERT', payload: { id, msg, alertType } });
+
+        setTimeout(() => dispatch({ type: 'REMOVE_ALERT', payload: id }), 3000);
+    }
+
     const handleCart = async () => {
         if (product.counts <= 0) {
-            alert("Products Not Available");
+            triggerAlert('Products Not Available', 'danger');
         }
         dispatch({ type: 'ADD_TO_CART', payload: { ...product, counts: 1 } })
+        triggerAlert('Item Added To Cart', 'success');
     }
 
     const item = cart.filter(item => item._id === product._id)
@@ -58,14 +68,14 @@ const SingleProduct = ({ product }) => {
 
     const handleDecrease = (product, count) => {
         if (item[0].counts < 0) {
-            alert("Products Cannot Be Negative");
+            triggerAlert('Products Cannot Negative', 'danger');
         } else {
             dispatch({ type: 'ADD_TO_CART', payload: { ...product, counts: count - 1 } })
         }
     }
     const handleIncrease = async (product, count) => {
         if (item[0].counts >= product.counts) {
-            alert(`${product.counts} Products Are Available`);
+            triggerAlert(`${product.counts} Products Are Available`, 'danger');
         } else {
             dispatch({ type: 'ADD_TO_CART', payload: { ...product, counts: count + 1 } })
         }
@@ -78,6 +88,7 @@ const SingleProduct = ({ product }) => {
                 <link rel="icon" href="/logo.jpg" />
             </Head>
             <Navbar search={false} handleCartModal={handleCartModal}></Navbar>
+            <Alerts></Alerts>
             {showCart && <CartModal></CartModal>}
             <div className="row mt-4">
                 <div className="col-md-5 offset-md-1 mt-5 offset-1">

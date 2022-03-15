@@ -18,7 +18,7 @@ const Alerts = () => {
     return (
         <div>
             {alerts !== null && alerts.length > 0 && alerts.map(alert => <div className={`${styles.alert_cotainer} mt-2`} data-aos="zoom-out-down" key={alert.id}>
-                <p className={`${styles.alertTitle} ${alert.alertType === 'Pcreated' && styles.alertTitle_success} px-5 py-2`}>{alert.msg}</p>
+                <p className={`${styles.alertTitle} ${alert.alertType === 'success' && styles.alertTitle_success} px-5 py-2`}>{alert.msg}</p>
             </div>)}
         </div>
     );

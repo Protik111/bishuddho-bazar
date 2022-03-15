@@ -8,14 +8,16 @@ import axios from 'axios';
 import setAuthToken from '../utils/setAuthToken';
 import { v4 as uuidv4 } from 'uuid';
 import Alerts from '../components/Alerts';
+import { useRouter } from 'next/router';
 
 const login = () => {
     const { state, dispatch } = useContext(StoreContext);
-    const { showCart } = state;
+    const { showCart, userInfo } = state;
     const [formData, setFormData] = useState({
         email: "",
         password: ""
     });
+    const router = useRouter();
 
     const loadUser = async () => {
         try {
@@ -63,6 +65,9 @@ const login = () => {
             dispatch({ type: 'LOGIN_FAIL' });
             triggerAlert('Invalid Credentials', 'danger');
         }
+    }
+    if(userInfo.isAuthenticated){
+        router.push('/shipping');
     }
     console.log('state', state);
     return (

@@ -4,7 +4,13 @@ export const StoreContext = createContext();
 
 const initialState = {
     cart: [],
-    showCart: false
+    showCart: false,
+    userInfo: {
+        isAuthenticated: false,
+        token: typeof window !== 'undefined' && localStorage.getItem('token'),
+        user: null,
+        loading: true,
+    }
 };
 
 const reducer = (state, action) => {
@@ -25,6 +31,27 @@ const reducer = (state, action) => {
         case 'EDIT_SHOW_MODAL':
             return {
                 ...state, showCart: action.payload
+            }
+        case 'LOGIN_SUCCESS':
+            localStorage.setItem('token', action.payload.token)
+            return {
+                ...state,
+                userInfo: {
+                    isAuthenticated: true,
+                    token: action.payload.token,
+                    user: '',
+                    loading: false
+                }
+            }
+        case 'LOAD_USER':
+            return {
+                ...state,
+                userInfo: {
+                    isAuthenticated: true,
+                    token: typeof window !== 'undefined' && localStorage.getItem('token'),
+                    user: action.payload,
+                    loading: false
+                }
             }
         default:
             return state;

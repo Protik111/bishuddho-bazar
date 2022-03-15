@@ -4,15 +4,30 @@ import styles from '../../styles/SingleProduct.module.css';
 import { Box } from "@mui/system";
 import LinearProgress from '@mui/material/LinearProgress';
 import axios from 'axios';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { StoreContext } from '../../utils/context';
 import CartModal from '../../components/CartModal';
 import Head from 'next/head'
+import setAuthToken from '../../utils/setAuthToken';
 
 const SingleProduct = ({ product }) => {
     const { state, dispatch } = useContext(StoreContext);
     const { cart, showCart } = state;
     // console.log('cart', cart);
+    
+    const loadUser = async () => {
+        const { data } = await axios.get('http://localhost:3000/api/user/auth');
+        console.log('load user', data);
+        dispatch({ type: 'LOAD_USER', payload: data })
+    }
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+        if (token) {
+            console.log('token from useEffect', token);
+            setAuthToken(token);
+            loadUser();
+        }
+    }, [])
 
     const handleCartModal = () => {
         dispatch({ type: 'EDIT_SHOW_MODAL', payload: true })

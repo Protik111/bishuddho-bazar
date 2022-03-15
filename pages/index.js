@@ -5,13 +5,28 @@ import Header from '../components/Header'
 import Navbar from '../components/Navbar'
 import Products from '../components/Products';
 import axios from 'axios';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import CartModal from '../components/CartModal';
 import { StoreContext } from '../utils/context';
+import setAuthToken from '../utils/setAuthToken';
 
 export default function Home({ products }) {
   const { state, dispatch } = useContext(StoreContext);
   const { showCart } = state;
+
+  const loadUser = async () => {
+    const { data } = await axios.get('http://localhost:3000/api/user/auth');
+    console.log('load user', data);
+    dispatch({ type: 'LOAD_USER', payload: data })
+  }
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if(token){
+      console.log('token from useEffect', token);
+      setAuthToken(token);
+      loadUser();
+    }
+  }, [])
 
   const handleCart = () => {
     dispatch({ type: 'EDIT_SHOW_MODAL', payload: !showCart })

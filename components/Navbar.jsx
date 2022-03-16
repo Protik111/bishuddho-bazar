@@ -5,11 +5,19 @@ import { RiAccountCircleLine } from 'react-icons/ri';
 import Link from 'next/link';
 import { useContext } from 'react';
 import { StoreContext } from '../utils/context';
+import { AiOutlineLogout } from 'react-icons/ai';
+import { useRouter } from 'next/router';
 
 
-const Navbar = ({ search, handleCart, handleCartModal }) => {
+const Navbar = ({ search, handleCart, handleCartModal, shipping }) => {
     const { state, dispatch } = useContext(StoreContext);
-    const { cart } = state;
+    const { cart, userInfo } = state;
+    const router = useRouter();
+
+    const handleLogout = () => {
+        dispatch({ type: 'LOG-OUT'});
+        router.push('/login');
+    }
 
     return (
         <div className={`${styles.container}`}>
@@ -29,19 +37,27 @@ const Navbar = ({ search, handleCart, handleCartModal }) => {
                     {search !== false && <li>
                         <a href="">Contact Us</a>
                     </li>}
-                    <li>
+                    {!shipping && <li>
                         <a onClick={(e) => {
                             e.preventDefault();
-                            if (search===false) {
+                            if (search === false) {
                                 handleCartModal()
                             } else {
                                 handleCart()
                             }
                         }} className={styles.cartLengthContainer} href=""><AiOutlineShoppingCart className={styles.icons}></AiOutlineShoppingCart></a><span className={styles.cartLength}>{cart.length}</span>
-                    </li>
-                    <li className={styles.profile}>
-                        <Link href="/login" passHref><RiAccountCircleLine className={styles.icons}></RiAccountCircleLine></Link>
-                    </li>
+                    </li>}
+                    {userInfo.isAuthenticated &&
+                        <li className={styles.profile}>
+                            <Link href="/shipping" passHref><RiAccountCircleLine className={styles.icons}></RiAccountCircleLine></Link>
+                        </li>}
+                    {userInfo.isAuthenticated ?
+                        <li className={styles.profile}>
+                            <a onClick={handleLogout}><AiOutlineLogout className={styles.icons}></AiOutlineLogout></a>
+                        </li> :
+                        <li className={styles.profile}>
+                            <Link href="/shipping" passHref><RiAccountCircleLine className={styles.icons}></RiAccountCircleLine></Link>
+                        </li>}
                 </ul>
             </div>
         </div>

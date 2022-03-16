@@ -8,6 +8,7 @@ import axios from 'axios';
 import setAuthToken from '../utils/setAuthToken';
 import { v4 as uuidv4 } from 'uuid';
 import Alerts from '../components/Alerts';
+import Head from 'next/head';
 import { useRouter } from 'next/router';
 
 const login = () => {
@@ -72,6 +73,11 @@ const login = () => {
     console.log('state', state);
     return (
         <div className="container-fluid p-0">
+            <Head>
+                <title>Login User</title>
+                <meta name="description" content="Online shop for fresh foods" />
+                <link rel="icon" href="/logo.jpg" />
+            </Head>
             <Navbar search={false} handleCartModal={handleCartModal}></Navbar>
             <Alerts></Alerts>
             {showCart && <CartModal></CartModal>}

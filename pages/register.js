@@ -9,6 +9,7 @@ import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
 import Alerts from '../components/Alerts';
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 
 const Register = () => {
     const { state, dispatch } = useContext(StoreContext);
@@ -84,6 +85,11 @@ const Register = () => {
     }
     return (
         <div className="container-fluid p-0">
+            <Head>
+                <title>Register User</title>
+                <meta name="description" content="Online shop for fresh foods" />
+                <link rel="icon" href="/logo.jpg" />
+            </Head>
             <Navbar search={false} handleCartModal={handleCartModal}></Navbar>
             <Alerts></Alerts>
             {showCart && <CartModal></CartModal>}

@@ -57,6 +57,7 @@ const reducer = (state, action) => {
         case 'LOGIN_FAIL':
         case 'REGISTER_FAIL':
         case 'LOAD_USER_FAIL':
+        case 'LOG-OUT':
             localStorage.removeItem('token')
             return {
                 ...state,

@@ -1,0 +1,29 @@
+.container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid rgb(177, 175, 175);
+    border-radius: 5px;
+}
+.productImg{
+    object-fit: cover;
+    transition: all 0.3s ease;
+}
+.productImg:hover{
+    transform: scale(1.2);
+}
+.summery{
+    height: 68vh;
+    border: 1px solid rgb(177, 175, 175);
+}
+.loginBtn{
+    background-color: #159c6f;
+    padding: 0.8rem 0.2rem;
+    border-radius: 7px;
+    border: none;
+    color: white;
+    transition: background-color 0.2s ease;
+}
+.loginBtn:hover{
+    background-color: #127e5a;
+}

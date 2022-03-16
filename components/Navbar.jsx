@@ -55,7 +55,7 @@ const Navbar = ({ search, handleCart, handleCartModal, shipping }) => {
                             } else {
                                 handleCart()
                             }
-                        }} className={styles.cartLengthContainer} href=""><AiOutlineShoppingCart className={styles.icons}></AiOutlineShoppingCart></a><span className={styles.cartLength}>{cart.length}</span>
+                        }} className={styles.cartLengthContainer} href=""><AiOutlineShoppingCart className={styles.icons}></AiOutlineShoppingCart></a><span className={styles.cartLength}>{!cart ? 0 : cart.length}</span>
                     </li>}
                     {userInfo.isAuthenticated &&
                         <li className={styles.profile}>

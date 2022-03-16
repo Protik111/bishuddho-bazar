@@ -7,22 +7,45 @@ import setAuthToken from '../utils/setAuthToken';
 import axios from 'axios';
 import CheckoutSteps from '../components/CheckoutSteps';
 import styles from '../styles/Shipping.module.css';
+import { v4 as uuidv4 } from 'uuid';
+import Alerts from '../components/Alerts';
+import { useRouter } from 'next/router';
 
 const shipping = () => {
     const { state, dispatch } = useContext(StoreContext);
+    const { shippingAddress } = state;
     const [formData, setFormData] = useState({
         address: '',
         city: '',
         postal: '',
         country: ''
     });
+
     const { address, city, postal, country } = formData;
     const handleChange = (e) => {
         setFormData({...formData, [e.target.name]: e.target.value})
     }
+
+    const triggerAlert = (msg, alertType) => {
+        const id = uuidv4();
+        dispatch({ type: 'SET_ALERT', payload: { id, msg, alertType } });
+
+        setTimeout(() => dispatch({ type: 'REMOVE_ALERT', payload: id }), 3000);
+    }
+
+    const router = useRouter();
+    if(shippingAddress){
+        router.push('/payment');
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log('after submit', formData);
+        if(address && city && postal && country){
+            dispatch({ type: 'ADD_SHIPPING_ADDRESS', payload: formData});
+            router.push('/payment');
+        }else{
+            triggerAlert("All Fields Are Required", "danger")
+        }
     }
     const loadUser = async () => {
         try {
@@ -51,9 +74,11 @@ const shipping = () => {
             </Head>
             <Navbar search={false} shipping={true}></Navbar>
             <CheckoutSteps step1 step2></CheckoutSteps>
+            <Alerts></Alerts>
             <div className={`${styles.loginContainer} mt-5 mb-5`}>
                 <div className="pt-5">
                     <h3 className="d-flex justify-content-center">Shipping</h3>
+                    <hr />
                 </div>
                 <form onSubmit={handleSubmit} className={styles.allInput}>
                     <div>

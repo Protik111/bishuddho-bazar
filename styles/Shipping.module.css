@@ -5,6 +5,13 @@
     min-height: 65vh;
     border-radius: 20px;
 }
+.paymentContainer{
+    margin: auto;
+    background-color: #e8e9eb;
+    width: 45%;
+    min-height: 45vh;
+    border-radius: 20px;
+}
 .allInput{
     display: grid;
     place-items: center;
@@ -31,11 +38,4 @@
 }
 .loginBtn:hover{
     background-color: #127e5a;
-}
-.account{
-    font-weight: 400;
-    transition: all 0.2s ease;
-}
-.register:hover{
-    cursor: pointer;
 }

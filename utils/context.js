@@ -11,7 +11,9 @@ const initialState = {
         token: typeof window !== 'undefined' && localStorage.getItem('token'),
         user: null,
         loading: true,
-    }
+    },
+    shippingAddress: typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('shippingAddress')) : {},
+    paymentMethod: typeof window !== 'undefined' ? localStorage.getItem('paymentMethod') : null
 };
 
 const reducer = (state, action) => {
@@ -77,6 +79,30 @@ const reducer = (state, action) => {
                     user: action.payload,
                     loading: false
                 }
+            }
+        case 'ADD_SHIPPING_ADDRESS':
+            localStorage.setItem('shippingAddress', JSON.stringify(action.payload))
+            return {
+                ...state,
+                shippingAddress: action.payload
+            }
+        case 'FAIL_SHIPPING_ADDRESS':
+            localStorage.removeItem('shippingAddress')
+            return {
+                ...state,
+                shippingAddress: {}
+            }
+        case 'ADD_PAYMENT':
+            localStorage.setItem('paymentMethod', action.payload)
+            return {
+                ...state,
+                paymentMethod: action.payload
+            }
+        case 'PAYMENT_FAIL':
+            localStorage.removeItem('paymentMethod')
+            return {
+                ...state,
+                paymentMethod: null
             }
         default:
             return state;

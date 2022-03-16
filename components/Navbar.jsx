@@ -7,6 +7,8 @@ import { useContext } from 'react';
 import { StoreContext } from '../utils/context';
 import { AiOutlineLogout } from 'react-icons/ai';
 import { useRouter } from 'next/router';
+import { Box } from "@mui/system";
+import LinearProgress from '@mui/material/LinearProgress';
 
 
 const Navbar = ({ search, handleCart, handleCartModal, shipping }) => {
@@ -17,6 +19,14 @@ const Navbar = ({ search, handleCart, handleCartModal, shipping }) => {
     const handleLogout = () => {
         dispatch({ type: 'LOG-OUT'});
         router.push('/login');
+    }
+
+    if (shipping && !userInfo) {
+        return (
+            <Box mt={20} sx={{ width: '100%' }}>
+                <LinearProgress />
+            </Box>
+        )
     }
 
     return (
@@ -49,7 +59,7 @@ const Navbar = ({ search, handleCart, handleCartModal, shipping }) => {
                     </li>}
                     {userInfo.isAuthenticated &&
                         <li className={styles.profile}>
-                            <Link href="/shipping" passHref><RiAccountCircleLine className={styles.icons}></RiAccountCircleLine></Link>
+                            <Link href="/shipping" passHref><a className={styles.icons}>{!userInfo.user ? '' : userInfo.user.name}</a></Link>
                         </li>}
                     {userInfo.isAuthenticated ?
                         <li className={styles.profile}>

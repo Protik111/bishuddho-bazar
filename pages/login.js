@@ -99,7 +99,7 @@ const login = () => {
                         <input className={`${styles.input} justify-content-center`} type="password" name="password" id="password" value={password} onChange={handleChange} placeholder="Enter Password" />
                     </div>
                     <div className="mt-4">
-                        <input className={`${styles.loginBtn} justify-content-center`} type="submit" id="login" value="Login" />
+                        <input className={`${styles.loginBtn} justify-content-center`} type="submit" id="login" value={userInfo.loading === false ? 'Logging In..' : 'Login'} />
                     </div>
                 </form>
                 <div className="d-flex justify-content-center mt-2">

@@ -1,0 +1,7 @@
+.steps{
+    font-size: larger;
+    color: #1ABB85;
+}
+.steps:hover{
+    color: #1d7c5c;
+}

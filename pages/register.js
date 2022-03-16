@@ -103,7 +103,7 @@ const Register = () => {
                     <div>
                         <label htmlFor="name">Name</label>
                         <br />
-                        <input className={`${styles.input} justify-content-center`} type="name" name="name" id="name" value={name} onChange={handleChange} placeholder="Enter Full Name" />
+                        <input className={`${styles.input} justify-content-center`} type="text" name="name" id="name" value={name} onChange={handleChange} placeholder="Enter Full Name" />
                     </div>
                     <div className="mt-3">
                         <label htmlFor="email">Email</label>

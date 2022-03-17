@@ -59,7 +59,7 @@ const Navbar = ({ search, handleCart, handleCartModal, shipping }) => {
                     </li>}
                     {userInfo.isAuthenticated &&
                         <li className={styles.profile}>
-                            <Link href="/shipping" passHref><a className={styles.icons}>{!userInfo.user ? '' : userInfo.user.name}</a></Link>
+                            <Link href="/dashboard" passHref><a className={styles.icons}>{!userInfo.user ? '' : userInfo.user.name}</a></Link>
                         </li>}
                     {userInfo.isAuthenticated ?
                         <li className={styles.profile}>

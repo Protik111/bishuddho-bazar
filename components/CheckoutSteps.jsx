@@ -41,7 +41,7 @@ const CheckoutSteps = ({ step1, step2, step3, step4 }) => {
 
       <Nav.Item>
         {step4 ? (
-          <Link href='/placeorder' passHref>
+          <Link href='/order' passHref>
             <Nav.Link className={styles.steps}><span className="me-1"><BsCartCheckFill></BsCartCheckFill></span>Order</Nav.Link>
           </Link>
         ) : (

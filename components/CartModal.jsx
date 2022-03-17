@@ -50,7 +50,7 @@ const CartModal = () => {
                     {cart.length > 0 ? (
                         <>
                             <div className={`${styles.proceed} px-5`}>
-                                <Link href="/order" passHref>
+                                <Link href="/shipping" passHref>
                                     <h6 className="mt-2">Proceed To Checkout</h6>
                                 </Link>
                             </div>

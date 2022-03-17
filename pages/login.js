@@ -68,7 +68,7 @@ const login = () => {
         }
     }
     if(userInfo.isAuthenticated){
-        router.push('/shipping');
+        router.push('/');
     }
     console.log('state', state);
     return (

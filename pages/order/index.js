@@ -15,7 +15,7 @@ import Navbar from '../../components/Navbar';
 const order = () => {
     const { state, dispatch } = useContext(StoreContext);
     const { cart, paymentMethod, userInfo, shippingAddress } = state;
-    const { address, city, postal, country } = shippingAddress;
+    // const { address, city, postal, country } = shippingAddress;
     console.log('state from order', state, paymentMethod);
     const taxPrice = 5.00;
     const shippingPrice = 0.00;
@@ -76,12 +76,12 @@ const order = () => {
                 <div className="col-md-7 offset-md-1">
                     <div>
                         <h2>Shipping</h2>
-                        <p>{address}, {city}, {postal}, {country}</p>
+                        <p>{!shippingAddress ? '' : shippingAddress.address}, {!shippingAddress ? '' : shippingAddress.city}, {!shippingAddress ? '' : shippingAddress.postal}, {!shippingAddress ? '' : shippingAddress.country}</p>
                     </div>
                     <hr />
                     <div>
                         <h2>Payment</h2>
-                        <p>{paymentMethod}</p>
+                        <p>{!paymentMethod ? '' : paymentMethod}</p>
                     </div>
                     <hr />
                     <div>

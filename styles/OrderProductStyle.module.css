@@ -27,3 +27,12 @@
 .loginBtn:hover{
     background-color: #127e5a;
 }
+.notPaid{
+    background-color: rgb(216, 9, 9);
+    color: white;
+}
+.paid{
+    background-color: #159C6F;
+    opacity: 0.8;
+    color: white;
+}

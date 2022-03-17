@@ -31,9 +31,9 @@ router.post(auth, async (req, res) => {
         });
 
         //saving to db
-        await newOrder.save();
+        const order = await newOrder.save();
 
-        return res.status(200).json({ msg: 'Order Completed Successfully!' })
+        return res.status(200).send(order);
 
     } catch (error) {
         console.log(error);

@@ -1,28 +1,49 @@
 import React, { useContext, useEffect } from 'react';
-import { StoreContext } from '../utils/context';
 import axios from 'axios';
-import setAuthToken from '../utils/setAuthToken';
-import withAuth from '../components/WithAuth';
+import setAuthToken from '../../utils/setAuthToken';
 import { useRouter } from 'next/router';
-import Navbar from '../components/Navbar';
 import Head from 'next/head';
-import CheckoutSteps from '../components/CheckoutSteps';
-import Alerts from '../components/Alerts';
-import OrderProductStyle from '../components/OrderProductStyle';
-import styles from '../styles/OrderProductStyle.module.css';
+import CheckoutSteps from '../../components/CheckoutSteps';
+import Alerts from '../../components/Alerts';
+import OrderProductStyle from '../../components/OrderProductStyle';
+import styles from '../../styles/OrderProductStyle.module.css';
+import { v4 as uuidv4 } from 'uuid';
+import { StoreContext } from '../../utils/context';
+import withAuth from '../../components/WithAuth';
+import Navbar from '../../components/Navbar';
 
 const order = () => {
     const { state, dispatch } = useContext(StoreContext);
     const { cart, paymentMethod, userInfo, shippingAddress } = state;
     const { address, city, postal, country } = shippingAddress;
     console.log('state from order', state, paymentMethod);
-    const tax = 5.00;
-    const shipping = 0.00;
-    const taxShipping = tax + shipping;
+    const taxPrice = 5.00;
+    const shippingPrice = 0.00;
+    const taxShipping = taxPrice + shippingPrice;
+    const itemsPrice = cart.reduce((acc, cur) => acc + cur.price * cur.counts, 0);
+    const totalPrice = (itemsPrice+taxShipping).toFixed(2)
+
 
     const router = useRouter();
     if (paymentMethod === null) {
         router.push('/payment')
+    }
+    const triggerAlert = (msg, alertType) => {
+        const id = uuidv4();
+        dispatch({ type: 'SET_ALERT', payload: { id, msg, alertType } });
+
+        setTimeout(() => dispatch({ type: 'REMOVE_ALERT', payload: id }), 3000);
+    }
+
+    const handleOrder = async() => {
+        try {
+            const { data } = await axios.post('http://localhost:3000/api/order', { cart, paymentMethod, shippingAddress, itemsPrice, shippingPrice, taxPrice, totalPrice})
+            triggerAlert("Order Placed Successfully!", "success");
+            router.push(`/order/${data._id}`);
+            dispatch({ type: 'REMOVE_AFTER_MAKING_ORDER' })
+        } catch (error) {
+            triggerAlert("Order Cannot Placed Successfully!", "danger")
+        }
     }
     const loadUser = async () => {
         try {
@@ -41,13 +62,10 @@ const order = () => {
             loadUser();
         }
     }, []);
-
-    const total = cart.reduce((acc, cur) => acc + cur.price * cur.counts, 0);
-
     return (
         <div className="container-fluid p-0">
             <Head>
-                <title>Payment</title>
+                <title>Order</title>
                 <meta name="description" content="Online shop for fresh foods" />
                 <link rel="icon" href="/logo.jpg" />
             </Head>
@@ -85,29 +103,29 @@ const order = () => {
                     <div className="d-flex justify-content-around">
                         <p>Items' Price</p>
                         <p>$
-                            {total.toFixed(2)}
+                            {itemsPrice.toFixed(2)}
                         </p>
                     </div>
                     <hr />
                     <div className="d-flex justify-content-around">
                         <p>Shipping</p>
-                        <p>${shipping}</p>
+                        <p>${shippingPrice}</p>
                     </div>
                     <hr />
                     <div className="d-flex justify-content-around">
                         <p>Tax</p>
-                        <p>${tax}</p>
+                        <p>${taxPrice}</p>
                     </div>
                     <hr />
                     <div className="d-flex justify-content-around">
                         <p>Total</p>
                         <p>$
-                            {(total+taxShipping).toFixed(2)}
+                            {totalPrice}
                         </p>
                     </div>
                     <hr />
                     <div className="mt-2">
-                        <input className={`${styles.loginBtn} w-100`} type="submit" id="login" value="Place Order" />
+                        <input onClick={handleOrder} className={`${styles.loginBtn} w-100`} type="submit" id="login" value="Place Order" />
                     </div>
                 </div>
             </div>

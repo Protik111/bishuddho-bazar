@@ -41,6 +41,16 @@ const reducer = (state, action) => {
             return {
                 ...state, cart: restItems
             }
+        case 'REMOVE_AFTER_MAKING_ORDER':
+            localStorage.removeItem('cart')
+            localStorage.removeItem('shippingAddress')
+            localStorage.removeItem('paymentMethod')
+            return {
+                ...state,
+                cart : [],
+                shippingAddress: {},
+                paymentMethod: null
+            }
         case 'EDIT_SHOW_MODAL':
             return {
                 ...state, showCart: action.payload

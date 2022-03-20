@@ -159,7 +159,6 @@ const dashboard = () => {
                                 <td>@mdo</td>
                                 <td>@twitter</td>
                             </tr>
-                            
                         </tbody>
                     </table>
                 </div>

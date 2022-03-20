@@ -46,7 +46,8 @@ const Register = () => {
         }else{
             try {
                 const { data } = await axios.post('http://localhost:3000/api/user/register', {name, email, password});
-                dispatch({ type: 'REGISTER_SUCCESS', payload: data })
+                dispatch({ type: 'REGISTER_SUCCESS', payload: data });
+                router.push('/');
             } catch (error) {
                 const errors = error.response.data.errors;
                 console.log('e', errors);

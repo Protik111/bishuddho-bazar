@@ -36,3 +36,23 @@
     opacity: 0.8;
     color: white;
 }
+.dashboard_menu a{
+    line-height: 3rem;
+    font-size: larger;
+    transition: all 0.3s ease;
+}
+.dashboard_menu a:hover{
+    background-color: #159C6F;
+    color: white;
+    border-radius: 7px;
+}
+.orderNumber{
+    border: 1px solid rgb(180, 179, 179);
+    border-radius: 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.orderIcon{
+    font-size: 2rem;
+}

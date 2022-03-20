@@ -66,7 +66,7 @@ const Navbar = ({ search, handleCart, handleCartModal, shipping }) => {
                             <a onClick={handleLogout}><AiOutlineLogout className={styles.icons}></AiOutlineLogout></a>
                         </li> :
                         <li className={styles.profile}>
-                            <Link href="/shipping" passHref><RiAccountCircleLine className={styles.icons}></RiAccountCircleLine></Link>
+                            <Link href="/dashboard" passHref><RiAccountCircleLine className={styles.icons}></RiAccountCircleLine></Link>
                         </li>}
                 </ul>
             </div>

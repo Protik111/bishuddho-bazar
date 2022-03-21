@@ -3,7 +3,7 @@ import auth from '../../../utils/authMiddleware';
 import Order from '../../../models/Order';
 
 const router = nc();
-router.get(auth, async (req, res) => {
+router.get(auth,async (req, res) => {
     try {
         const orders = await Order.find({ user: req.user.id });
         if(!orders){

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import axios from 'axios';
 import setAuthToken from '../utils/setAuthToken';
 import Head from 'next/head';
@@ -13,12 +13,13 @@ import { MdOutlineDashboard, MdPassword } from 'react-icons/md';
 import { AiOutlineLogout } from 'react-icons/ai';
 import { GrDocumentUpdate, GrCompliance } from 'react-icons/gr';
 import { FcProcess } from 'react-icons/fc';
+import Moment from 'react-moment';
 import { BsFillCartCheckFill } from 'react-icons/bs';
-
 
 const dashboard = () => {
     const { state, dispatch } = useContext(StoreContext);
     const { cart, userInfo } = state;
+    const [orders, setOrders] = useState([]);
 
     const triggerAlert = (msg, alertType) => {
         const id = uuidv4();
@@ -41,6 +42,10 @@ const dashboard = () => {
             dispatch({ type: 'LOAD_USER_FAIL' })
         }
     }
+    const fechOrder = async() => {
+        const { data } = await axios.get('http://localhost:3000/api/profile');
+        setOrders(data);
+    }
     useEffect(() => {
         const token = localStorage.getItem('token');
         if (token) {
@@ -48,6 +53,7 @@ const dashboard = () => {
             setAuthToken(token);
             loadUser();
         }
+        fechOrder();
     }, []);
     return (
         <div className="container-fluid p-0">
@@ -117,48 +123,22 @@ const dashboard = () => {
                         <thead>
                             <tr>
                                 <th scope="col">Id</th>
-                                <th scope="col">Order Time</th>
+                                <th scope="col">Order Date</th>
                                 <th scope="col">Method</th>
                                 <th scope="col">Status</th>
                                 <th scope="col">Total $</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td>@mdo</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@mdo</td>
-                                <td>@fat</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Larry</td>
-                                <td>the Bird</td>
-                                <td>@mdo</td>
-                                <td>@twitter</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">4</th>
-                                <td>Larry</td>
-                                <td>the Bird</td>
-                                <td>@mdo</td>
-                                <td>@twitter</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">5</th>
-                                <td>Larry</td>
-                                <td>the Bird</td>
-                                <td>@mdo</td>
-                                <td>@twitter</td>
-                            </tr>
+                            {
+                                orders.map(order => <tr>
+                                    <th scope="row">{order._id}</th>
+                                    <td><Moment format="YYYY/MM/DD">{order.createdAt}</Moment></td>
+                                    <td>{order.paymentMethod}</td>
+                                    <td>{order.isDelivered ? 'Delivered' : 'Not Delivered'}</td>
+                                    <td>{order.totalPrice}</td>
+                                </tr>)
+                            }
                         </tbody>
                     </table>
                 </div>
@@ -166,5 +146,15 @@ const dashboard = () => {
         </div>
     );
 };
+
+// export async function getServerSideProps(){
+//     const { data } = await axios.get('http://localhost:3000/api/profile')
+//     return {
+//         props: {
+//             orders: data
+//         }
+//     }
+// }
+
 
 export default withAuth(dashboard);

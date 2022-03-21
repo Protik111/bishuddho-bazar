@@ -1,6 +1,9 @@
+import axios from 'axios';
 import React, { useContext, useState } from 'react';
 import styles from '../styles/Login.module.css';
 import { StoreContext } from '../utils/context';
+import { useRouter } from 'next/router';
+import { v4 as uuidv4 } from 'uuid';
 
 const UpdateProfile = () => {
     const { state, dispatch } = useContext(StoreContext);
@@ -10,12 +13,24 @@ const UpdateProfile = () => {
         email: userInfo.user.email
     })
     const { name, email } = formData;
-    const handleSubmit = () => {
+    const router = useRouter();
 
+    const triggerAlert = (msg, alertType) => {
+        const id = uuidv4();
+        dispatch({ type: 'SET_ALERT', payload: { id, msg, alertType } });
+
+        setTimeout(() => dispatch({ type: 'REMOVE_ALERT', payload: id }), 3000);
+    }
+
+    const handleSubmit = async(e) => {
+        e.preventDefault();
+        await axios.put('http://localhost:3000/api/profile/update', {name, email});
+        triggerAlert('Profile Updated Successfully!', 'success');
+        router.push('/dashboard');
     }
 
     const handleChange = (e) => {
-        setFormData({...formData}, [e.target.name] = e.target.value)
+        setFormData({...formData, [e.target.name] : e.target.value})
     }
     return (
         <div>

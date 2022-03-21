@@ -56,3 +56,7 @@
 .orderIcon{
     font-size: 2rem;
 }
+.tableRow:hover{
+    color: #127e5a;
+    cursor: pointer;
+}

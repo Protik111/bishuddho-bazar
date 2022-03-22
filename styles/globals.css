@@ -38,3 +38,29 @@ a {
   float: left;
   /* text-align: center; */
 }
+.globalModal{
+  position: fixed;
+  top: 45%;
+  right: 0;
+  z-index: 3000;
+  cursor: pointer;
+}
+.globalPrice{
+  background-color: #1abb85;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+.globalItems{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.globalItemsContainer{
+  background-color: #e2e3e6;
+  padding-top: 3px;
+  padding-bottom: 1px;
+  border-radius: 5px;
+}

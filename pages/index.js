@@ -9,6 +9,7 @@ import { useContext, useEffect } from 'react';
 import CartModal from '../components/CartModal';
 import { StoreContext } from '../utils/context';
 import setAuthToken from '../utils/setAuthToken';
+import GlobalCart from '../components/GlobalCart';
 
 export default function Home({ products }) {
   const { state, dispatch } = useContext(StoreContext);
@@ -47,6 +48,7 @@ export default function Home({ products }) {
       </Head>
       {showCart && <CartModal ></CartModal>}
       <Navbar handleCart={handleCart}></Navbar>
+      {!showCart && <GlobalCart></GlobalCart>}
       <Header expiryTimestamp={time}></Header>
       <Categories></Categories>
       <Products products={products}></Products>

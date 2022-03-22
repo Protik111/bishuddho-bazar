@@ -97,9 +97,6 @@ const dashboard = () => {
                         }} href="" className="px-4 py-2"><span className="me-2"><GrDocumentUpdate></GrDocumentUpdate></span>Update Profile</a>
                     </div>
                     <div>
-                        <a href="" className="px-4 py-2"><span className="me-2"><MdPassword></MdPassword></span>Change Password</a>
-                    </div>
-                    <div>
                         <a onClick={handleLogout} href="" className="px-4 py-2"><span className="me-2"><AiOutlineLogout></AiOutlineLogout></span>Logout</a>
                     </div>
                 </div>

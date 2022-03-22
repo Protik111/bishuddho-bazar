@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import styles from '../styles/Categories.module.css';
+import Link from 'next/Link';
 
 const Categories = () => {
     return (
@@ -8,10 +9,12 @@ const Categories = () => {
                 <h2>Product Categories</h2>
             </div>
             <div className="row me-5 ms-5 text-center justify-content-center">
-                <div className={`${styles.categories_container} col-md-2`}>
-                    <Image src="/images/categories/baby.png" width={80} height={80}></Image>
-                    <h3>Baby Food</h3>
-                </div>
+                <Link href="/category" passHref>
+                    <div className={`${styles.categories_container} col-md-2`}>
+                        <Image src="/images/categories/baby.png" width={80} height={80}></Image>
+                        <h3>Baby Food</h3>
+                    </div>
+                </Link>
                 <div className={`${styles.categories_container} col-md-2`}>
                     <Image src="/images/categories/fish.png" width={80} height={80}></Image>
                     <h3>Fish</h3>

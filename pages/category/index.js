@@ -1,11 +1,30 @@
 import axios from 'axios';
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import Navbar from '../../components/Navbar.jsx';
 import ProductStyle from '../../components/ProductStyle.jsx';
+import { StoreContext } from '../../utils/context.js';
+import setAuthToken from '../../utils/setAuthToken.js';
 const index = ({ category }) => {
+    const { dispatch } = useContext(StoreContext);
+    const loadUser = async () => {
+        try {
+            const { data } = await axios.get('http://localhost:3000/api/user/auth');
+            dispatch({ type: 'LOAD_USER', payload: data })
+        } catch (error) {
+            dispatch({ type: 'LOAD_USER_FAIL' })
+        }
+        
+    }
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+        if (token) {
+            setAuthToken(token);
+            loadUser();
+        }
+    }, [])
     return (
         <div>
-            <Navbar></Navbar>
+            <Navbar search={false}></Navbar>
             <div className="row d-flex justify-content-center">
                 {
                     category.length > 0 ? category.map(item => <ProductStyle item={item}></ProductStyle>) : (<div className="d-flex justify-content-center mt-5">

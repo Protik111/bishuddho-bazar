@@ -7,7 +7,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 const UpdateProfile = () => {
     const { state, dispatch } = useContext(StoreContext);
-    const { cart, userInfo } = state;
+    const { userInfo } = state;
     const [formData , setFormData] = useState({
         name: userInfo.user.name,
         email: userInfo.user.email

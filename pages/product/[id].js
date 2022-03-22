@@ -15,12 +15,10 @@ import Alerts from '../../components/Alerts';
 const SingleProduct = ({ product }) => {
     const { state, dispatch } = useContext(StoreContext);
     const { cart, showCart } = state;
-    // console.log('cart', cart);
 
     const loadUser = async () => {
         try {
             const { data } = await axios.get('http://localhost:3000/api/user/auth');
-            console.log('load user', data);
             dispatch({ type: 'LOAD_USER', payload: data })
         } catch (error) {
             dispatch({ type: 'LOAD_USER_FAIL' })
@@ -30,7 +28,6 @@ const SingleProduct = ({ product }) => {
     useEffect(() => {
         const token = localStorage.getItem('token');
         if (token) {
-            console.log('token from useEffect', token);
             setAuthToken(token);
             loadUser();
         }
@@ -56,7 +53,6 @@ const SingleProduct = ({ product }) => {
     }
 
     const item = cart.filter(item => item._id === product._id)
-    // console.log('itm', item);
 
     if (!product && item.length === 0) {
         return (

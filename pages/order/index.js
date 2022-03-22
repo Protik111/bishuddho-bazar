@@ -14,15 +14,12 @@ import Navbar from '../../components/Navbar';
 
 const order = () => {
     const { state, dispatch } = useContext(StoreContext);
-    const { cart, paymentMethod, userInfo, shippingAddress } = state;
-    // const { address, city, postal, country } = shippingAddress;
-    console.log('state from order', state, paymentMethod);
+    const { cart, paymentMethod, shippingAddress } = state;
     const taxPrice = 5.00;
     const shippingPrice = 0.00;
     const taxShipping = taxPrice + shippingPrice;
     const itemsPrice = cart.reduce((acc, cur) => acc + cur.price * cur.counts, 0);
     const totalPrice = (itemsPrice+taxShipping).toFixed(2)
-
 
     const router = useRouter();
     if (paymentMethod === null) {
@@ -48,7 +45,6 @@ const order = () => {
     const loadUser = async () => {
         try {
             const { data } = await axios.get('http://localhost:3000/api/user/auth');
-            console.log('load user', data);
             dispatch({ type: 'LOAD_USER', payload: data })
         } catch (error) {
             dispatch({ type: 'LOAD_USER_FAIL' })
@@ -57,7 +53,6 @@ const order = () => {
     useEffect(() => {
         const token = localStorage.getItem('token');
         if (token) {
-            console.log('token from useEffect', token);
             setAuthToken(token);
             loadUser();
         }

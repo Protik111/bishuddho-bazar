@@ -50,7 +50,6 @@ const shipping = () => {
     const loadUser = async () => {
         try {
             const { data } = await axios.get('http://localhost:3000/api/user/auth');
-            console.log('load user', data);
             dispatch({ type: 'LOAD_USER', payload: data })
         } catch (error) {
             dispatch({ type: 'LOAD_USER_FAIL' })
@@ -59,12 +58,10 @@ const shipping = () => {
     useEffect(() => {
         const token = localStorage.getItem('token');
         if (token) {
-            console.log('token from useEffect', token);
             setAuthToken(token);
             loadUser();
         }
     }, [])
-    console.log('state from shippiung', state);
     return (
         <div>
             <Head>

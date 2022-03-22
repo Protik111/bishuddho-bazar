@@ -26,7 +26,6 @@ const Register = () => {
     const loadUser = async () => {
         try {
             const { data } = await axios.get('http://localhost:3000/api/user/auth');
-            console.log('load user', data);
             dispatch({ type: 'LOAD_USER', payload: data })
         } catch (error) {
             dispatch({ type: 'LOAD_USER_FAIL' })
@@ -50,7 +49,6 @@ const Register = () => {
                 router.push('/');
             } catch (error) {
                 const errors = error.response.data.errors;
-                console.log('e', errors);
                 errors.map(err => triggerAlert(err.msg, 'danger'))
                 dispatch({ type: 'REGISTER_FAIL' })
             }
@@ -70,7 +68,6 @@ const Register = () => {
 
         const token = localStorage.getItem('token');
         if (token) {
-            console.log('token from useEffect', token);
             setAuthToken(token);
             loadUser();
         }

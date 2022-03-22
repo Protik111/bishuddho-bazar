@@ -36,8 +36,10 @@ const reducer = (state, action) => {
                 ...state, cart: cartProducts
             }
         case 'REMOVE_FROM_CART':
+            localStorage.removeItem('cart');
             const deleteItem = action.payload;
-            const restItems = state.cart.filter(item => item._id !== deleteItem._id)
+            const restItems = state.cart.filter(item => item._id !== deleteItem._id);
+            localStorage.setItem('cart', JSON.stringify(restItems));
             return {
                 ...state, cart: restItems
             }

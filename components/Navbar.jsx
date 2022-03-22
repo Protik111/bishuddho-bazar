@@ -31,7 +31,7 @@ const Navbar = ({ search, handleCart, handleCartModal, shipping }) => {
 
     return (
         <div className={`${styles.container}`}>
-            <Link href="/" passHref>
+            <Link href="/">
                 <div className='ms-5 d-flex justify-content-center' style={{ cursor: 'pointer' }}>
                     <Image className={styles.logo} src="/logo.jpg" width={90} height={90}></Image>
                 </div>

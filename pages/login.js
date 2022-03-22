@@ -18,12 +18,12 @@ const login = () => {
         email: "",
         password: ""
     });
+
     const router = useRouter();
 
     const loadUser = async () => {
         try {
             const { data } = await axios.get('http://localhost:3000/api/user/auth');
-            console.log('load user', data);
             dispatch({ type: 'LOAD_USER', payload: data })
         } catch (error) {
             dispatch({ type: 'LOAD_USER_FAIL' })
@@ -38,7 +38,6 @@ const login = () => {
     useEffect(() => {
         const token = localStorage.getItem('token');
         if (token) {
-            console.log('token from useEffect', token);
             setAuthToken(token);
             loadUser();
         }
@@ -58,7 +57,6 @@ const login = () => {
     }
     const handleSubmit = async (e) => {
         e.preventDefault();
-
         try {
             const { data } = await axios.post('http://localhost:3000/api/user/auth', { email, password });
             dispatch({ type: 'LOGIN_SUCCESS', payload: data });
@@ -70,7 +68,6 @@ const login = () => {
     if(userInfo.isAuthenticated){
         router.push('/');
     }
-    console.log('state', state);
     return (
         <div className="container-fluid p-0">
             <Head>

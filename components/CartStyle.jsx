@@ -5,7 +5,7 @@ import { useContext } from 'react';
 import { StoreContext } from '../utils/context';
 
 const CartStyle = ({ item }) => {
-    const { state, dispatch } = useContext(StoreContext);
+    const { dispatch } = useContext(StoreContext);
     const handleDelete = async(item) => {
         dispatch({ type: 'REMOVE_FROM_CART', payload: item })
     }

@@ -11,6 +11,10 @@
 }
 .list ul li {
     list-style: none;
+    padding: 0 1.2rem;
+}
+.navbar_links_menu_items ul li {
+    list-style: none;
     padding: 1.2rem;
 }
 .list ul li:last-child {
@@ -63,4 +67,105 @@
     border-radius: 50%;
     padding: 1px 6px;
     color: white;
+}
+
+.navbar_links_menu{
+    display: none;
+    /* position: relative; */
+}
+
+/* media queries */
+@media screen and (max-width: 1225px){
+    .searchInput{
+        width: 25rem;
+    }
+}
+@media screen and (max-width: 1080px){
+    .searchInput{
+        width: 20rem;
+    }
+}
+
+@media screen and (max-width: 1000px){
+    .list{
+        display: none;
+    }
+    .navbar_links_menu_items{
+        transition: all 0.3s ease;
+    }
+    .navbar_links_menu{
+        display: flex;
+        margin-top: 2.5rem;
+        margin-right: 1rem;
+    }
+    .searchInput{
+        width: 30rem;
+    }
+    .listItem{
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        flex-direction: column;
+        
+        text-align: end;
+        background: #1abb85;
+        transition: all 0.5s;
+        padding: 2rem;
+        position: absolute;
+        right: 0;
+        top: 6rem;
+        margin-top: 1rem;
+        min-width: 12rem;
+        border-radius: 5px;
+        box-shadow: 0px 0px 5px rgba(0,0, 0,0.2);
+        z-index: 5000;
+    }
+    .navbar_links_menu_items ul li:last-child {
+        padding-right: 2.1rem;
+    }
+    .navbar_links_menu_items ul li a{
+        font-size: 1.1rem;
+        font-weight: 400;
+        color: white;
+    }
+    .profile{
+        color: white;
+        font-size: 1.1rem;
+        font-weight: 400;
+    }
+    .profile:hover{
+        color: rgb(228, 226, 226);
+        cursor: pointer;
+    }
+    .navbar_links_menu_items ul li a:hover {
+        color: rgb(228, 226, 226);
+    }
+}
+
+@media screen and (max-width: 800px){
+    .searchInput{
+        width: 25rem;
+    }
+}
+
+@media screen and (max-width: 685px){
+    .searchInput{
+        width: 20rem;
+        margin-right: 1rem;
+    }
+    .logo{
+        width: 75px;
+        height: 75px;
+    }
+}
+
+@media screen and (max-width: 525px){
+    .searchInput{
+        width: 15rem;
+        margin-right: 1rem;
+    }
+    .logo{
+        width: 70px;
+        height: 70px;
+    }
 }

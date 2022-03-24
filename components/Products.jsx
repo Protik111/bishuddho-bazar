@@ -9,7 +9,7 @@ const Products = ({ products }) => {
             <div className="d-flex justify-content-center text-center">
                 <p>See all our popular products in this week. You can choose  your daily needs products <br></br> from this list and get some special offer with free shipping.</p>
             </div>
-            <div className="row ms-5">
+            <div className="row ms-1 me-1 ms-md-5">
                 {
                     products.map(item => <ProductStyle item={item} key={item._id}></ProductStyle>)
                 }

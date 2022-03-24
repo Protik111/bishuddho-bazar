@@ -15,8 +15,8 @@ const Header = ({ expiryTimestamp }) => {
 
     return (
         <div className="row mt-3">
-            <div className="col-md-6 offset-md-1">
-                <Slide easing="ease" duration="1000" arrows={false}>
+            <div className={`${styles.slideContainer} col-sm-12 col-md-6 offset-md-1`}>
+                <Slide className={styles.sliders} easing="ease" duration="1000" arrows={false}>
                     <div className={styles.each_slide}>
                         <Image className={styles.slider} src="/images/slider/slider1.jpg" width={700} height={400}></Image>
                         <div className={`${styles.title_container}`}>
@@ -48,10 +48,10 @@ const Header = ({ expiryTimestamp }) => {
                     <h4>Latest Super Discount!</h4>
                 </div>
                 <div className={`${styles.voucher_container} mt-4`}>
-                    <div className="ms-5">
+                    <div className="ms-5 w-100">
                         <Image className={styles.offerImg} src='/images/slider/slider2.jpg' width={150} height={150}></Image>
                     </div>
-                    <div className='mt-3 ms-3'>
+                    <div className='mt-3'>
                         <h4>10% Off</h4>
                         <p>{date.toLocaleString('default', { month: 'long' })} Gift Voucher</p>
                         <div>

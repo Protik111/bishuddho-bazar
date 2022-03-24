@@ -39,3 +39,44 @@
     object-fit: cover;
     border-radius: 5px;
 }
+
+@media screen and (max-width: 1325px){
+    .title_container{
+        position: relative;
+        right: -12rem;
+        top: -10rem;
+    }
+}
+
+@media screen and (max-width: 1140px){
+    .title_container{
+        position: relative;
+        right: -8rem;
+        top: -10rem;
+        width: 75%;
+    }
+    .title_container h2 {
+        font-size: 1.8rem;
+    }
+    .each_slide{
+        margin-top: 2.3rem;
+    }
+}
+@media screen and (max-width: 950px){
+    .title_container{
+        position: relative;
+        right: -6rem;
+        top: -10rem;
+        /* margin-bottom: 100px; */
+        /* width: 60%; */
+    }
+    .title_container h2 {
+        font-size: 1.4rem;
+    }
+    .each_slide{
+        margin-top: 3.6rem;
+    }
+    .offerImg{
+        margin-top: 100px;
+    }
+}

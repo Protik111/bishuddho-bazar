@@ -8,7 +8,7 @@ const Choose = () => {
             <div className="d-flex justify-content-center">
                 <h2 className="mt-5">WHY CHOOSE US?</h2>
             </div>
-            <div className="row offset-1">
+            <div className="row offset-md-1 px-1 px-md-0">
                 {
                     data.map(item => <ChooseStyle item={item} key={item.id}></ChooseStyle>)
                 }

@@ -118,7 +118,7 @@
         min-width: 12rem;
         border-radius: 5px;
         box-shadow: 0px 0px 5px rgba(0,0, 0,0.2);
-        z-index: 5000;
+        z-index: 3000;
     }
     .navbar_links_menu_items ul li:last-child {
         padding-right: 2.1rem;

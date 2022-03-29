@@ -4,7 +4,7 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-    background-color: #F3F4F6;
+  background-color: #F3F4F6;
 }
 
 a {
@@ -23,7 +23,7 @@ a {
   background-color: rgba(0, 0, 0, 0.5);
   height: 100%;
   width: 100%;
-  z-index: 2000;
+  z-index: 3000;
 }
 
 .cartModal .modalContainer {
@@ -42,7 +42,7 @@ a {
   position: fixed;
   top: 45%;
   right: 0;
-  z-index: 3000;
+  z-index: 7000;
   cursor: pointer;
 }
 .globalPrice{
@@ -64,3 +64,57 @@ a {
   padding-bottom: 1px;
   border-radius: 5px;
 }
+
+@media screen and (max-width: 1260px){
+  .cartModal .modalContainer {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 1110px){
+  .cartModal .modalContainer {
+    width: 93%;
+  }
+}
+
+@media screen and (max-width: 1024px){
+  .cartModal .modalContainer {
+    width: 95%;
+  }
+}
+
+@media screen and (max-width: 940px){
+  .cartModal .modalContainer {
+    width: 97%;
+  }
+}
+
+@media screen and (max-width: 880px){
+  .cartModal .modalContainer {
+    width: 99%;
+  }
+}
+
+@media screen and (max-width: 808px){
+  .cartModal .modalContainer {
+    min-width: 107%;
+  }
+}
+
+@media screen and (max-width: 632px){
+  .cartModal .modalContainer {
+    min-width: 112%;
+  }
+}
+@media screen and (max-width: 596px){
+  .cartModal .modalContainer {
+    min-width: 113%;
+  }
+}
+@media screen and (max-width: 548px){
+  .cartModal .modalContainer {
+    min-width: 119%;
+  }
+}
+
+

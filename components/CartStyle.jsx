@@ -14,7 +14,7 @@ const CartStyle = ({ item }) => {
             <div className="ms-md-3">
                 <Image className={styles.cartImage} width={70} height={70} src={item.image}></Image>
             </div>
-            <div className={`${styles.price} mx-md-5 my-md-2`}>
+            <div className={`${styles.price} mx-md-5 my-md-2 mx-5 my-2`}>
                 <h6>{item.name}</h6>
                 <p>Item Price: ${item.price}</p>
                 <p>Total Items: {item.counts}</p>

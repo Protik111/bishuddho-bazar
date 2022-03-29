@@ -38,3 +38,50 @@
     border-radius: 20px;
     color: #10B981;
 }
+
+@media screen and (max-width: 1260px){
+    .cancel{
+        position: absolute;
+        left: 33%;
+    }
+}
+
+@media screen and (max-width: 1110px){
+    .cancel{
+        position: absolute;
+        left: 33%;
+    }
+}
+
+@media screen and (max-width: 940px){
+    .cancel{
+        position: absolute;
+        left: 35%;
+    }
+}
+
+@media screen and (max-width: 880px){
+    .cancel{
+        position: absolute;
+        left: 39%;
+    }
+}
+
+@media screen and (max-width: 808px){
+    .cancel{
+        position: absolute;
+        left: 42%;
+    }
+}
+@media screen and (max-width: 632px){
+    .cancel{
+        position: absolute;
+        left: 45%;
+    }
+}
+@media screen and (max-width: 548px){
+    .cancel{
+        position: absolute;
+        left: 49%;
+    }
+}

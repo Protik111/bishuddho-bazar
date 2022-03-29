@@ -53,9 +53,11 @@ const Navbar = ({ search, handleCart, handleCartModal, shipping }) => {
                         <a onClick={(e) => {
                             e.preventDefault();
                             if (search === false) {
-                                handleCartModal()
+                                handleCartModal();
+                                setToggleMenu(false);
                             } else {
-                                handleCart()
+                                handleCart();
+                                setToggleMenu(false);
                             }
                         }} className={styles.cartLengthContainer} href=""><AiOutlineShoppingCart className={styles.icons}></AiOutlineShoppingCart></a><span className={styles.cartLength}>{!cart ? 0 : cart.length}</span>
                     </li>}
@@ -95,9 +97,11 @@ const Navbar = ({ search, handleCart, handleCartModal, shipping }) => {
                                 <a onClick={(e) => {
                                     e.preventDefault();
                                     if (search === false) {
-                                        handleCartModal()
+                                        handleCartModal();
+                                        setToggleMenu(false);
                                     } else {
-                                        handleCart()
+                                        handleCart();
+                                        setToggleMenu(false);
                                     }
                                 }} className={styles.cartLengthContainer} href=""><AiOutlineShoppingCart className={styles.icons}></AiOutlineShoppingCart></a><span className={styles.cartLength}>{!cart ? 0 : cart.length}</span>
                             </li>}

@@ -90,7 +90,7 @@ const SingleProduct = ({ product }) => {
                 <div className="col-md-5 offset-md-1 mt-5 offset-1">
                     <Image className={styles.singleImg} src={product.image} alt="Picture of the product" width={330} height={300}></Image>
                 </div>
-                <div className="col-md-5 mt-5 offset-1 offset-md-0">
+                <div className="col-md-5 mt-5 mx-1 offset-md-0">
                     <h4>{product.name}</h4>
                     <p className="me-1">{product.description}</p>
                     <p className={styles.price}>${product.price}</p>

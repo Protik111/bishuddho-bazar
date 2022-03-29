@@ -22,3 +22,51 @@
 .delete:hover{
     transform: scale(1.2);
 }
+
+@media screen and (max-width: 1260px){
+    .delete{
+        position: absolute;
+        left: 33%;
+    }
+}
+
+@media screen and (max-width: 1110px){
+    .delete{
+        position: absolute;
+        left: 33%;
+    }
+}
+
+@media screen and (max-width: 940px){
+    .delete{
+        position: absolute;
+        left: 35%;
+    }
+}
+
+@media screen and (max-width: 880px){
+    .delete{
+        position: absolute;
+        left: 39%;
+    }
+}
+
+@media screen and (max-width: 808px){
+    .delete{
+        position: absolute;
+        left: 42%;
+    }
+}
+
+@media screen and (max-width: 632px){
+    .delete{
+        position: absolute;
+        left: 45%;
+    }
+}
+@media screen and (max-width: 548px){
+    .delete{
+        position: absolute;
+        left: 49%;
+    }
+}

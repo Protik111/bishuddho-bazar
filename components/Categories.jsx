@@ -18,43 +18,43 @@ const Categories = () => {
             <div className="row me-5 ms-5 text-center justify-content-center">
                 <Link href={{ pathname: '/category', query: { keyword: Baby } }} passHref>
                     <div className={`${styles.categories_container} col-md-2`}>
-                        <Image src="/images/categories/baby.png" width={80} height={80}></Image>
+                        <Image src="/images/categories/baby.png" width={80} height={80} alt="baby"></Image>
                         <h3>Baby Food</h3>
                     </div>
                 </Link>
                 <Link href={{ pathname: '/category', query: { keyword: Fish } }} passHref>
                 <div className={`${styles.categories_container} col-md-2`}>
-                    <Image src="/images/categories/fish.png" width={80} height={80}></Image>
+                    <Image src="/images/categories/fish.png" width={80} height={80} alt="fish"></Image>
                     <h3>Fish</h3>
                 </div>
                 </Link>
                 <Link href={{ pathname: '/category', query: { keyword: Grocery } }} passHref>
                 <div className={`${styles.categories_container} col-md-2`}>
-                    <Image src="/images/categories/food.png" width={80} height={80}></Image>
+                    <Image src="/images/categories/food.png" width={80} height={80} alt="food"></Image>
                     <h3>Grocery</h3>
                 </div>
                 </Link>
                 <Link href={{ pathname: '/category', query: { keyword: Pickle } }} passHref>
                 <div className={`${styles.categories_container} col-md-2`}>
-                    <Image src="/images/categories/grocery.png" width={80} height={80}></Image>
+                    <Image src="/images/categories/grocery.png" width={80} height={80} alt="grocery"></Image>
                     <h3>Pickle Food</h3>
                 </div>
                 </Link>
                 <Link href={{ pathname: '/category', query: { keyword: Tea } }} passHref>
                 <div className={`${styles.categories_container} col-md-2`}>
-                    <Image src="/images/categories/lunch.png" width={80} height={80}></Image>
+                    <Image src="/images/categories/lunch.png" width={80} height={80} alt="lunchs"></Image>
                     <h3>Tea & Snacks</h3>
                 </div>
                 </Link>
                 <Link href={{ pathname: '/category', query: { keyword: Meat } }} passHref>
                 <div className={`${styles.categories_container} col-md-2`}>
-                    <Image src="/images/categories/meat.png" width={80} height={80}></Image>
+                    <Image src="/images/categories/meat.png" width={80} height={80} alt="meat"></Image>
                     <h3>Meat</h3>
                 </div>
                 </Link>
                 <Link href={{ pathname: '/category', query: { keyword: Fruits } }} passHref>
                 <div className={`${styles.categories_container} col-md-2 mt-4`}>
-                    <Image src="/images/categories/apple.png" width={80} height={80}></Image>
+                    <Image src="/images/categories/apple.png" width={80} height={80} alt="apple"></Image>
                     <h3>Fruits</h3>
                 </div>
                 </Link>

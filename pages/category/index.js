@@ -4,7 +4,7 @@ import Navbar from '../../components/Navbar.jsx';
 import ProductStyle from '../../components/ProductStyle.jsx';
 import { StoreContext } from '../../utils/context.js';
 import setAuthToken from '../../utils/setAuthToken.js';
-const index = ({ category }) => {
+const Index = ({ category }) => {
     const { dispatch } = useContext(StoreContext);
     const loadUser = async () => {
         try {
@@ -21,13 +21,13 @@ const index = ({ category }) => {
             setAuthToken(token);
             loadUser();
         }
-    }, [])
+    }, [loadUser])
     return (
         <div>
             <Navbar search={false}></Navbar>
             <div className="row d-flex justify-content-center">
                 {
-                    category.length > 0 ? category.map(item => <ProductStyle item={item}></ProductStyle>) : (<div className="d-flex justify-content-center mt-5">
+                    category.length > 0 ? category.map(item => <ProductStyle item={item} key={item. _id}></ProductStyle>) : (<div className="d-flex justify-content-center mt-5">
                         <h2 style={{color: 'red'}}>Oops! There Is No Product In This Category.</h2>
                     </div>)
                 }
@@ -36,7 +36,7 @@ const index = ({ category }) => {
     );
 };
 
-export default index;
+export default Index;
 
 export async function getServerSideProps({ query }) {
     // console.log('params from hi category', query.keyword);

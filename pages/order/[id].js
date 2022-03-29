@@ -42,7 +42,7 @@ const SingleOrder = ({ order }) => {
             setAuthToken(token);
             loadUser();
         }
-    }, []);
+    }, [loadUser]);
     return (
         <div className="container-fluid p-0">
             <Head>
@@ -78,7 +78,7 @@ const SingleOrder = ({ order }) => {
                         </div>
                         <div>
                             {
-                                cart.map(item => <OrderProductStyle item={item}></OrderProductStyle>)
+                                cart.map(item => <OrderProductStyle item={item} key={item. _id}></OrderProductStyle>)
                             }
                         </div>
                     </div>
@@ -89,7 +89,7 @@ const SingleOrder = ({ order }) => {
                     </div>
                     <hr />
                     <div className="d-flex justify-content-around">
-                        <p>Items' Price</p>
+                        <p>Items Price</p>
                         <p>$
                             {itemsPrice.toFixed(2)}
                         </p>

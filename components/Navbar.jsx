@@ -33,9 +33,9 @@ const Navbar = ({ search, handleCart, handleCartModal, shipping }) => {
 
     return (
         <div className={`${styles.container}`}>
-            <Link href="/">
+            <Link href="/" passHref>
                 <div className='ms-5 ms-sm -2 d-flex justify-content-center' style={{ cursor: 'pointer' }}>
-                    <Image className={styles.logo} src="/logo.jpg" width={90} height={90}></Image>
+                    <Image className={styles.logo} src="/logo.jpg" width={90} height={90} alt="logo"></Image>
                 </div>
             </Link>
             {search !== false && <div className='ms-5'>

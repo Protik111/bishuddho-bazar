@@ -17,9 +17,8 @@ import { BsFillCartCheckFill } from 'react-icons/bs';
 import Link from 'next/link';
 import UpdateProfile from '../components/UpdateProfile';
 
-const dashboard = () => {
+const Dashboard = () => {
     const { state, dispatch } = useContext(StoreContext);
-    const { cart, userInfo } = state;
     const [orders, setOrders] = useState([]);
     const [switching, setSwitching] = useState('dashboard')
 
@@ -63,7 +62,7 @@ const dashboard = () => {
             loadUser();
         }
         fechOrder();
-    }, []);
+    }, [loadUser]);
     return (
         <div className="container-fluid p-0">
             <Head>
@@ -132,7 +131,7 @@ const dashboard = () => {
                         </div></>}
 
                     {switching === 'dashboard' && orders.length > 0 && (
-                        <table class="table">
+                        <table className="table">
                             <thead>
                                 <tr>
                                     <th scope="col">Id</th>
@@ -144,7 +143,7 @@ const dashboard = () => {
                             </thead>
                             <tbody>
                                 {
-                                    orders.map(order => <Link href={`/order/${order._id}`} passHref>
+                                    orders.map(order => <Link key={order. _id} href={`/order/${order._id}`} passHref>
                                         <tr className={styles.tableRow}>
                                             <th scope="row">{order._id}</th>
                                             <td><Moment format="YYYY/MM/DD">{order.createdAt}</Moment></td>
@@ -192,4 +191,4 @@ const dashboard = () => {
 // }
 
 
-export default withAuth(dashboard);
+export default withAuth(Dashboard);

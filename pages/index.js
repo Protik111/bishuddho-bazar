@@ -29,7 +29,7 @@ export default function Home({ products }) {
       setAuthToken(token);
       loadUser();
     }
-  }, [])
+  }, [loadUser])
 
   const handleCart = () => {
     dispatch({ type: 'EDIT_SHOW_MODAL', payload: !showCart })

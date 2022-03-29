@@ -11,7 +11,7 @@ import Alerts from '../components/Alerts';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
-const login = () => {
+const Login = () => {
     const { state, dispatch } = useContext(StoreContext);
     const { showCart, userInfo } = state;
     const [formData, setFormData] = useState({
@@ -41,7 +41,7 @@ const login = () => {
             setAuthToken(token);
             loadUser();
         }
-    }, [])
+    }, [loadUser])
 
     const { email, password } = formData;
 
@@ -100,7 +100,7 @@ const login = () => {
                     </div>
                 </form>
                 <div className="d-flex justify-content-center mt-2">
-                    <h6 className={styles.account}>Don't Have an Account?</h6>
+                    <h6 className={styles.account}>Do not Have an Account?</h6>
                     <Link href="/register" passHref><h6 className={`${styles.register} ms-1`}>Register</h6></Link>
                 </div>
             </div>
@@ -108,4 +108,4 @@ const login = () => {
     );
 };
 
-export default login;
+export default Login;

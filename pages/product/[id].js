@@ -31,7 +31,7 @@ const SingleProduct = ({ product }) => {
             setAuthToken(token);
             loadUser();
         }
-    }, [])
+    }, [loadUser])
 
     const handleCartModal = () => {
         dispatch({ type: 'EDIT_SHOW_MODAL', payload: true })

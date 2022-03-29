@@ -43,7 +43,7 @@ const CartModal = () => {
                 </div>
                 <div>
                     {
-                        cart.map(item => <CartStyle item={item}></CartStyle>)
+                        cart.map(item => <CartStyle item={item} key={item._id}></CartStyle>)
                     }
                 </div>
                 <div className={`${styles.checkout} p-4`}>

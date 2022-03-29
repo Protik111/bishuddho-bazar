@@ -11,7 +11,7 @@ import styles from '../styles/Shipping.module.css';
 import Alerts from '../components/Alerts';
 import { v4 as uuidv4 } from 'uuid';
 
-const payment = () => {
+const Payment = () => {
     const { state, dispatch } = useContext(StoreContext);
     const { shippingAddress, paymentMethod } = state;
     const [payment, setPayment] = useState('');
@@ -55,7 +55,7 @@ const payment = () => {
             setAuthToken(token);
             loadUser();
         }
-    }, [])
+    }, [loadUser])
     return (
         <div>
             <Head>
@@ -74,7 +74,7 @@ const payment = () => {
                 <form onSubmit={handleSubmit} className={styles.allInput}>
                     <div className="form-check">
                         <input onChange={(e) => setPayment(e.target.value)} value="Paypal" className="form-check-input" type="radio" name="Paypal" id="flexRadioDefault1" />
-                        <label className="form-check-label" for="Paypal">
+                        <label className="form-check-label" htmlFor="Paypal">
                             Paypal
                         </label>
                     </div>
@@ -87,4 +87,4 @@ const payment = () => {
     );
 };
 
-export default withAuth(payment);
+export default withAuth(Payment);

@@ -11,7 +11,7 @@ import { v4 as uuidv4 } from 'uuid';
 import Alerts from '../components/Alerts';
 import { useRouter } from 'next/router';
 
-const shipping = () => {
+const Shipping = () => {
     const { state, dispatch } = useContext(StoreContext);
     const { shippingAddress } = state;
     const [formData, setFormData] = useState({
@@ -61,7 +61,7 @@ const shipping = () => {
             setAuthToken(token);
             loadUser();
         }
-    }, [])
+    }, [loadUser])
     return (
         <div>
             <Head>
@@ -107,4 +107,4 @@ const shipping = () => {
     );
 };
 
-export default withAuth(shipping);
+export default withAuth(Shipping);

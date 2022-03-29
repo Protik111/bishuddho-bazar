@@ -9,7 +9,7 @@ const ChooseStyle = ({ item }) => {
                 <p>{item.description}</p>
             </div>
             <div className="mt-4 ms-2">
-                <Image src={item.image} width={100} height={100}></Image>
+                <Image src={item.image} width={100} height={100} alt="item"></Image>
             </div>
         </div>
     );

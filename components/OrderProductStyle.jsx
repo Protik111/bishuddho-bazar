@@ -7,7 +7,7 @@ const OrderProductStyle = ({ item }) => {
     return (
         <div className={`${styles.container} p-3 my-2`}>
             <div>
-                <Image className={styles.productImg} height={60} width={70} src={image}></Image>
+                <Image className={styles.productImg} height={60} width={70} src={image} alt="product"></Image>
             </div>
             <div>
                 <h5>{name}</h5>

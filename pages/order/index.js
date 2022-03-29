@@ -12,7 +12,7 @@ import { StoreContext } from '../../utils/context';
 import withAuth from '../../components/WithAuth';
 import Navbar from '../../components/Navbar';
 
-const order = () => {
+const Order = () => {
     const { state, dispatch } = useContext(StoreContext);
     const { cart, paymentMethod, shippingAddress } = state;
     const taxPrice = 5.00;
@@ -56,7 +56,7 @@ const order = () => {
             setAuthToken(token);
             loadUser();
         }
-    }, []);
+    }, [loadUser]);
     return (
         <div className="container-fluid p-0">
             <Head>
@@ -85,7 +85,7 @@ const order = () => {
                         </div>
                         <div>
                             {
-                                cart.map(item => <OrderProductStyle item={item}></OrderProductStyle>)
+                                cart.map(item => <OrderProductStyle item={item} key={item. _id}></OrderProductStyle>)
                             }
                         </div>
                     </div>
@@ -96,7 +96,7 @@ const order = () => {
                     </div>
                     <hr />
                     <div className="d-flex justify-content-around">
-                        <p>Items' Price</p>
+                        <p>Items Price</p>
                         <p>$
                             {itemsPrice.toFixed(2)}
                         </p>
@@ -128,4 +128,4 @@ const order = () => {
     );
 };
 
-export default withAuth(order);
+export default withAuth(Order);

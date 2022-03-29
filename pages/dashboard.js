@@ -41,7 +41,6 @@ const dashboard = () => {
 
     const handleLogout = () => {
         dispatch({ type: 'LOG-OUT' });
-        router.push('/login');
     }
 
 
@@ -127,7 +126,7 @@ const dashboard = () => {
                                 </div>
                                 <div className={`${styles.orderCounts} text-center`}>
                                     <h3>Completed</h3>
-                                    <p>{orders.length}</p>
+                                    <p>{orders.length - orders.length}</p>
                                 </div>
                             </div>
                         </div></>}

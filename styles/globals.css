@@ -42,7 +42,7 @@ a {
   position: fixed;
   top: 45%;
   right: 0;
-  z-index: 7000;
+  z-index: 2000;
   cursor: pointer;
 }
 .globalPrice{

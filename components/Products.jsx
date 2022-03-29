@@ -2,7 +2,7 @@ import ProductStyle from './ProductStyle';
 
 const Products = ({ products }) => {
     return (
-        <div className="mt-4 mb-4">
+        <div className="mt-4 mb-4" id="product">
             <div className="d-flex justify-content-center">
                 <h2><bold>Popular Products By Customer</bold></h2>
             </div>

@@ -82,7 +82,7 @@ const login = () => {
             <div className={`${styles.loginContainer} mt-5`}>
                 <div className="pt-5">
                     <h3 className="d-flex justify-content-center">Login</h3>
-                    <h6 className={`${styles.title} d-flex justify-content-center`}>Login with your email and password.</h6>
+                    <h6 className={`${styles.title} d-flex justify-content-center mx-5 text-center`}>Login with your email and password.</h6>
                 </div>
                 <form onSubmit={handleSubmit} className={styles.allInput}>
                     <div>

@@ -44,11 +44,11 @@ const Navbar = ({ search, handleCart, handleCartModal, shipping }) => {
             <div className={styles.list}>
                 <ul className={styles.listItem}>
                     {search !== false && <li>
-                        <a href="">Products</a>
+                        <a href="#product">Products</a>
                     </li>}
-                    {search !== false && <li>
+                    {/* {search !== false && <li>
                         <a href="">Contact Us</a>
-                    </li>}
+                    </li>} */}
                     {!shipping && <li>
                         <a onClick={(e) => {
                             e.preventDefault();
@@ -90,9 +90,9 @@ const Navbar = ({ search, handleCart, handleCartModal, shipping }) => {
                             {search !== false && <li>
                                 <a href="">Products</a>
                             </li>}
-                            {search !== false && <li>
+                            {/* {search !== false && <li>
                                 <a href="">Contact Us</a>
-                            </li>}
+                            </li>} */}
                             {!shipping && <li>
                                 <a onClick={(e) => {
                                     e.preventDefault();

@@ -39,3 +39,47 @@
 .loginBtn:hover{
     background-color: #127e5a;
 }
+@media screen and (max-width: 1000px){
+    .loginContainer{
+        min-width: 55%;
+        min-height: 65vh;
+    }
+    .input{
+        width: 41vw;
+        padding: 0.8rem 0.2rem;
+    }
+    .loginBtn{
+        width: 41vw;
+        padding: 0.8rem 0.2rem;
+    }
+}
+
+@media screen and (max-width: 900px){
+    .loginContainer{
+        min-width: 50%;
+        min-height: 65vh;
+    }
+    .input{
+        width: 38vw;
+        padding: 0.8rem 0.2rem;
+    }
+    .loginBtn{
+        width: 38vw;
+        padding: 0.8rem 0.2rem;
+    }
+}
+
+@media screen and (max-width: 750px){
+    .loginContainer{
+        min-width: 70%;
+        min-height: 65vh;
+    }
+    .input{
+        width: 45vw;
+        padding: 0.8rem 0.2rem;
+    }
+    .loginBtn{
+        width: 45vw;
+        padding: 0.8rem 0.2rem;
+    }
+}

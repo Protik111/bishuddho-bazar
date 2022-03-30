@@ -1,34 +1,38 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# BISHUDDHO BAJAR - Next.js Full Stack eCommerce Application
 
-## Getting Started
+This is an eCommerce web application created with Next.js framework. It has user authentication system, an user can add new products in his/her cart. can make order and with his/her account. It is deployed in Heroku and below you can find the link to visit the app.
 
-First, run the development server:
+![Landing Page](public/Home.png)
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+# Features
 
-Open [https://bishuddho-bazar.herokuapp.com](https://bishuddho-bazar.herokuapp.com) with your browser to see the result.
+- Full featured shopping cart
+- User profile with orders
+- User Authentication with JWT
+- See product list by category
+- Checkout process (shipping, payment method, etc)
+- Database seeder (products & users)
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+# Built with
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [https://bishuddho-bazar.herokuapp.com/api/hello](https://bishuddho-bazar.herokuapp.com/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+- Node.js
+- Express.js
+- Next.js
+- Context Api
+- Mongodb
+- Mongoose
+- React Hooks
+- React Bootstrap
+- Bootstrap
+- Aos
+- Materiul UI
+- Uuid
+- React Icons
+- Moment
+- Express-Validator
+- Axios
+- Bcrypt
+- JSON Web Token
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Live Link: (https://bishuddho-bazar.herokuapp.com/)

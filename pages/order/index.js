@@ -34,7 +34,7 @@ const Order = () => {
 
     const handleOrder = async() => {
         try {
-            const { data } = await axios.post('http://localhost:3000/api/order', { cart, paymentMethod, shippingAddress, itemsPrice, shippingPrice, taxPrice, totalPrice})
+            const { data } = await axios.post('https://bishuddho-bazar.herokuapp.com/api/order', { cart, paymentMethod, shippingAddress, itemsPrice, shippingPrice, taxPrice, totalPrice})
             triggerAlert("Order Placed Successfully!", "success");
             router.push(`/order/${data._id}`);
             dispatch({ type: 'REMOVE_AFTER_MAKING_ORDER' })
@@ -44,7 +44,7 @@ const Order = () => {
     }
     const loadUser = async () => {
         try {
-            const { data } = await axios.get('http://localhost:3000/api/user/auth');
+            const { data } = await axios.get('https://bishuddho-bazar.herokuapp.com/api/user/auth');
             dispatch({ type: 'LOAD_USER', payload: data })
         } catch (error) {
             dispatch({ type: 'LOAD_USER_FAIL' })

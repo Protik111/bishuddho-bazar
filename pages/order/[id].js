@@ -30,7 +30,7 @@ const SingleOrder = ({ order }) => {
 
     const loadUser = async () => {
         try {
-            const { data } = await axios.get('http://localhost:3000/api/user/auth');
+            const { data } = await axios.get('https://bishuddho-bazar.herokuapp.com/api/user/auth');
             dispatch({ type: 'LOAD_USER', payload: data })
         } catch (error) {
             dispatch({ type: 'LOAD_USER_FAIL' })
@@ -125,7 +125,7 @@ export default withAuth(SingleOrder);
 
 export async function getServerSideProps(context){
     const { params } = context;
-    const { data } = await axios.get(`http://localhost:3000/api/order/${params.id}`);
+    const { data } = await axios.get(`https://bishuddho-bazar.herokuapp.com/api/order/${params.id}`);
     return {
         props: {
             order: data

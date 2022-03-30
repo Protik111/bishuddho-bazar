@@ -25,7 +25,7 @@ const Register = () => {
 
     const loadUser = async () => {
         try {
-            const { data } = await axios.get('http://localhost:3000/api/user/auth');
+            const { data } = await axios.get('https://bishuddho-bazar.herokuapp.com/api/user/auth');
             dispatch({ type: 'LOAD_USER', payload: data })
         } catch (error) {
             dispatch({ type: 'LOAD_USER_FAIL' })
@@ -44,7 +44,7 @@ const Register = () => {
             triggerAlert("Password Didn't Matched!", "danger")
         }else{
             try {
-                const { data } = await axios.post('http://localhost:3000/api/user/register', {name, email, password});
+                const { data } = await axios.post('https://bishuddho-bazar.herokuapp.com/api/user/register', {name, email, password});
                 dispatch({ type: 'REGISTER_SUCCESS', payload: data });
                 router.push('/');
             } catch (error) {

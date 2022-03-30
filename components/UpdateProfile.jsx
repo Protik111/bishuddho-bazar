@@ -24,7 +24,7 @@ const UpdateProfile = () => {
 
     const handleSubmit = async(e) => {
         e.preventDefault();
-        await axios.put('http://localhost:3000/api/profile/update', {name, email});
+        await axios.put('https://bishuddho-bazar.herokuapp.com/api/profile/update', {name, email});
         triggerAlert('Profile Updated Successfully!', 'success');
         router.push('/dashboard');
     }

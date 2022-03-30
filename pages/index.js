@@ -17,7 +17,7 @@ export default function Home({ products }) {
 
   const loadUser = async () => {
     try {
-      const { data } = await axios.get('http://localhost:3000/api/user/auth');
+      const { data } = await axios.get('https://bishuddho-bazar.herokuapp.com/api/user/auth');
       dispatch({ type: 'LOAD_USER', payload: data })
     } catch (error) {
       dispatch({ type: 'LOAD_USER_FAIL' })
@@ -56,7 +56,7 @@ export default function Home({ products }) {
 }
 
 export async function getServerSideProps() {
-  const res = await axios.get('http://localhost:3000/api/product');
+  const res = await axios.get('https://bishuddho-bazar.herokuapp.com/api/product');
   return {
     props: {
       products: res.data

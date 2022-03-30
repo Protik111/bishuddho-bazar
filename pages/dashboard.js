@@ -45,14 +45,14 @@ const Dashboard = () => {
 
     const loadUser = async () => {
         try {
-            const { data } = await axios.get('http://localhost:3000/api/user/auth');
+            const { data } = await axios.get('https://bishuddho-bazar.herokuapp.com/api/user/auth');
             dispatch({ type: 'LOAD_USER', payload: data })
         } catch (error) {
             dispatch({ type: 'LOAD_USER_FAIL' })
         }
     }
     const fechOrder = async () => {
-        const { data } = await axios.get('http://localhost:3000/api/profile');
+        const { data } = await axios.get('https://bishuddho-bazar.herokuapp.com/api/profile');
         setOrders(data);
     }
     useEffect(() => {
@@ -182,7 +182,7 @@ const Dashboard = () => {
 };
 
 // export async function getServerSideProps(){
-//     const { data } = await axios.get('http://localhost:3000/api/profile')
+//     const { data } = await axios.get('https://bishuddho-bazar.herokuapp.com/api/profile')
 //     return {
 //         props: {
 //             orders: data

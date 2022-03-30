@@ -8,7 +8,7 @@ const Index = ({ category }) => {
     const { dispatch } = useContext(StoreContext);
     const loadUser = async () => {
         try {
-            const { data } = await axios.get('http://localhost:3000/api/user/auth');
+            const { data } = await axios.get('https://bishuddho-bazar.herokuapp.com/api/user/auth');
             dispatch({ type: 'LOAD_USER', payload: data })
         } catch (error) {
             dispatch({ type: 'LOAD_USER_FAIL' })
@@ -40,7 +40,7 @@ export default Index;
 
 export async function getServerSideProps({ query }) {
     // console.log('params from hi category', query.keyword);
-    const { data } = await axios.get(`http://localhost:3000/api/product/category?category=${query.keyword}`)
+    const { data } = await axios.get(`https://bishuddho-bazar.herokuapp.com/api/product/category?category=${query.keyword}`)
     return {
         props: {
             category: data

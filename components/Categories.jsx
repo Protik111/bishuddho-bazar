@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import styles from '../styles/Categories.module.css';
-import Link from 'next/Link';
+import Link from "next/link";
 
 const Categories = () => {
     const Baby = "Baby Food";
